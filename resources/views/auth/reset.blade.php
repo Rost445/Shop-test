@@ -1,0 +1,62 @@
+@extends('layouts.app')
+@section('style')
+@endsection
+@section('content')
+  
+<main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url('')}}">Головна</a></li>
+                <li class="breadcrumb-item"><a href="{{url('login') }}">Логін</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Відновлення паролю</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17" style="background-image: url('assets/images/backgrounds/login-bg.jpg')">
+        <div class="container">
+            <div class="form-box">
+                <div class="form-tab">
+                    <ul class="nav nav-pills nav-fill" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" 
+                            aria-controls="signin-2" aria-selected="false">Відновлення паролю</a>
+                        </li>
+                      
+                    </ul>
+                    <div class="tab-content">
+                        <div class="" style="display:block;">
+                            @include('layouts._message')
+                            <form action="" method="post" style="margin-top: 40px;">
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <label for="singin-email-2">Новий пароль <span>*</label>
+                                    <input type="password" class="form-control"  name="password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="singin-email-2">Новий пароль <span>*</label>
+                                    <input type="password" class="form-control"  name="cpassword" required>
+                                </div>
+                                <div class="form-footer">
+                                    <button type="submit" class="btn btn-outline-primary-2">
+                                        <span>Відновити пароль</span>
+                                        <i class="icon-long-arrow-right"></i>
+                                    </button>
+
+                                </div>
+                            </form>
+                            
+                        </div>
+                      
+                    </div>
+                </div><
+            </div>
+        </div>
+    </div>
+</main>
+
+@endsection
+
+@section('script')
+@endsection
