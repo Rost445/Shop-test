@@ -264,7 +264,7 @@ $getSettingHeader = App\Models\SystemSettingModel::getSingle();
         });
 
         //Add-To-Wishlist
-        $('body').delegate('.add-to-wishlist', 'click', function(e) {
+       /*  $('body').delegate('.add-to-wishlist', 'click', function(e) {
             var product_id = $(this).attr('id');
             $.ajax({
                 type: "POST",
@@ -282,7 +282,36 @@ $getSettingHeader = App\Models\SystemSettingModel::getSingle();
                     }
                 }
             });
-        });
+        }); */
+        $('body').delegate('.add-to-wishlist', 'click', function(e) {
+    var product_id = $(this).attr('id');
+    var _this = $(this); // Сохраняем контекст кнопки
+
+    $.ajax({
+        type: "POST",
+        url: "{{ url('add_to_wishlist') }}",
+        data: {
+            "_token": "{{ csrf_token() }}",
+            product_id: product_id,
+        },
+        dataType: "json",
+        success: function(data) {
+            // Если вы действительно хотите полную перезагрузку:
+            location.reload(); 
+
+            /* // Если же вы хотите менять класс БЕЗ перезагрузки (лучший UX):
+            if (data.is_wishlist == 0) {
+                $('.add-to-wishlist' + product_id).removeClass('btn-wishlist-add');
+            } else {
+                $('.add-to-wishlist' + product_id).addClass('btn-wishlist-add');
+            }
+            */
+        },
+        error: function(xhr) {
+            console.log('Ошибка:', xhr.responseText);
+        }
+    });
+});
     </script>
 
     <script>
