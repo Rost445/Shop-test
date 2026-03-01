@@ -15,7 +15,7 @@ use App\Models\NotificationModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Cart;
-
+use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderInvoiceMail;
 
@@ -163,6 +163,10 @@ class PaymentController extends Controller
                     $save->email = trim($request->email);
                     $save->password = Hash::make($request->password);
                     $save->save();
+                     try {
+          Mail::to($save->email)->send(new RegisterMail($save));
+        } catch (\Exception $e) {
+        }
 
                     $user_id = $save->id;
                     $json['status'] = true;
