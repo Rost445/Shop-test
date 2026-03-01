@@ -76,59 +76,59 @@ class PaymentController extends Controller
         return redirect()->back();
     }
 
-  public function add_to_cart(Request $request)
-{
-    $getProduct = ProductModel::getSingle($request->product_id);
+    public function add_to_cart(Request $request)
+    {
+        $getProduct = ProductModel::getSingle($request->product_id);
 
-    $total = $getProduct->price;
+        $total = $getProduct->price;
 
-    // SIZE
-    $size_id = 0;
-    $size_name = '';
-    $size_price = 0;
+        // SIZE
+        $size_id = 0;
+        $size_name = '';
+        $size_price = 0;
 
-    if (!empty($request->size_id)) {
-        $size = ProductSizeModel::getSingle($request->size_id);
-        if ($size) {
-            $size_id = $size->id;
-            $size_name = $size->name;
-            $size_price = !empty($size->price) ? $size->price : 0;
-            $total += $size_price;
+        if (!empty($request->size_id)) {
+            $size = ProductSizeModel::getSingle($request->size_id);
+            if ($size) {
+                $size_id = $size->id;
+                $size_name = $size->name;
+                $size_price = !empty($size->price) ? $size->price : 0;
+                $total += $size_price;
+            }
         }
-    }
 
-    // COLOR
-    $color_id = 0;
-    $color_name = '';
+        // COLOR
+        $color_id = 0;
+        $color_name = '';
 
-    if (!empty($request->color_id)) {
-        $color = ColorModel::getSingle($request->color_id);
-        if ($color) {
-            $color_id = $color->id;
-            $color_name = $color->name;
+        if (!empty($request->color_id)) {
+            $color = ColorModel::getSingle($request->color_id);
+            if ($color) {
+                $color_id = $color->id;
+                $color_name = $color->name;
+            }
         }
+
+        // 🔥 УНІКАЛЬНИЙ ID ДЛЯ КОМБІНАЦІЇ
+        $cart_id = $getProduct->id . '_' . $size_id . '_' . $color_id;
+
+        Cart::add([
+            'id' => $cart_id, // <-- ГОЛОВНА ЗМІНА
+            'name' => $getProduct->title,
+            'price' => $total,
+            'quantity' => $request->qty,
+            'attributes' => [
+                'product_id' => $getProduct->id,
+                'size_id' => $size_id,
+                'size_name' => $size_name,
+                'size_price' => $size_price,
+                'color_id' => $color_id,
+                'color_name' => $color_name,
+            ]
+        ]);
+
+        return redirect()->back()->with('success', "Товар успішно додано до кошика!");
     }
-
-    // 🔥 УНІКАЛЬНИЙ ID ДЛЯ КОМБІНАЦІЇ
-    $cart_id = $getProduct->id . '_' . $size_id . '_' . $color_id;
-
-    Cart::add([
-        'id' => $cart_id, // <-- ГОЛОВНА ЗМІНА
-        'name' => $getProduct->title,
-        'price' => $total,
-        'quantity' => $request->qty,
-        'attributes' => [
-            'product_id' => $getProduct->id,
-            'size_id' => $size_id,
-            'size_name' => $size_name,
-            'size_price' => $size_price,
-            'color_id' => $color_id,
-            'color_name' => $color_name,
-        ]
-    ]);
-
-    return redirect()->back()->with('success', "Товар успішно додано до кошика!");
-}
 
 
     public function update_cart(Request $request)
@@ -149,7 +149,7 @@ class PaymentController extends Controller
     {
         $validate = 0;
         $message = '';
-        if (!empty(Auth::check())) {
+       if (Auth::check()) {
             $user_id = Auth::user()->id;
         } else {
             if (!empty($request->is_create)) {
@@ -163,10 +163,15 @@ class PaymentController extends Controller
                     $save->email = trim($request->email);
                     $save->password = Hash::make($request->password);
                     $save->save();
-                     try {
-          Mail::to($save->email)->send(new RegisterMail($save));
-        } catch (\Exception $e) {
-        }
+
+                    Auth::login($save);
+
+                    try {
+                        Mail::to($save->email)->send(new RegisterMail($save));
+                        sleep(3);
+
+                    } catch (\Exception $e) {
+                    }
 
                     $user_id = $save->id;
                     $json['status'] = true;
@@ -263,50 +268,38 @@ class PaymentController extends Controller
         echo json_encode($json);
     }
 
-    public function checkout_payment(Request $request)
-    {
-        if (!empty(Cart::getSubTotal() && !empty($request->order_id))) {
-            $order_id = base64_decode($request->order_id);
-            $getOrder = OrderModel::getSingle($order_id);
-            if (!empty($getOrder)) {
-                if ($getOrder->payment_method == 'Післяплата') {
-                    $getOrder->is_payment = 1;
-                    $getOrder->save();
-                    try {
-                        Mail::to($getOrder->email)->send(new OrderInvoiceMail($getOrder));
-                    } catch (\Exception $e) {
-                    }
+   public function checkout_payment(Request $request)
+{
+    
+    if (!empty($request->order_id)) {
 
-                    $user_id =  1;
-                    $url = url('admin/orders/detail/' . $getOrder->id);
-                    $message = "Нове замовлення №" . $getOrder->order_number;
+        $order_id = base64_decode($request->order_id);
+        $getOrder = OrderModel::getSingle($order_id);
 
-                    NotificationModel::insertRecord($user_id, $message, $url);
+        if (!empty($getOrder)) {
 
-                    Cart::clear();
+            if ($getOrder->payment_method) {
 
-                    return redirect('cart')->with('success', "Замовлення успішно оформлено);");
-                } else if ($getOrder->payment_method == 'Платіжна картка') {
-                    $getOrder->is_payment = 1;
-                    $getOrder->save();
-                    try {
-                        Mail::to($getOrder->email)->send(new OrderInvoiceMail($getOrder));
-                    } catch (\Exception $e) {
-                    }
+                $getOrder->is_payment = 1;
+                $getOrder->save();
+try {
+    Mail::to($getOrder->email)->send(new OrderInvoiceMail($getOrder));
+} catch (\Exception $e) {
+  
+}
+                $user_id = 1;
+                $url = url('admin/orders/detail/' . $getOrder->id);
+                $message = "Нове замовлення №" . $getOrder->order_number;
 
+                NotificationModel::insertRecord($user_id, $message, $url);
 
-                    $user_id =  1;
-                    $url = url('admin/orders/detail/' . $getOrder->id);
-                    $message = "Нове замовлення №" . $getOrder->order_number;
+                Cart::clear();
 
-                    NotificationModel::insertRecord($user_id, $message, $url);
-
-                    Cart::clear();
-                    return redirect('cart')->with('success', "Замовлення прийнято! Номер платіжної картки відправлено на пошту. );");
-                }
+                return redirect('cart')->with('success', "Замовлення успішно оформлено");
             }
-        } else {
-            abort(404);
         }
     }
+
+    abort(404);
+}
 }
