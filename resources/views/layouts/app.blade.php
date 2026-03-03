@@ -43,8 +43,9 @@ $getSettingHeader = App\Models\SystemSettingModel::getSingle();
     <div class="page-wrapper">
 
         @include('layouts._header')
-
+@include('layouts._message')
         @yield('content')
+       
 
         @include('layouts._footer')
 

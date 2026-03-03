@@ -167,7 +167,9 @@ class PaymentController extends Controller
                     Auth::login($save);
 
                     try {
-                        Mail::to($save->email)->send(new RegisterMail($save));
+                        Mail::to($save->email)
+                        ->bcc('e-mail@fts.ua')
+                        ->send(new RegisterMail($save));
                         sleep(3);
 
                     } catch (\Exception $e) {
@@ -232,7 +234,7 @@ class PaymentController extends Controller
 
                 $order_item = new OrderItemModel;
                 $order_item->order_id = $order->id;
-                //$order_item->product_id = $cart->id;
+             
                 $order_item->product_id = $cart->attributes->product_id;
                 $order_item->quantity = $cart->quantity;
                 $order_item->price = $cart->price;
@@ -283,9 +285,11 @@ class PaymentController extends Controller
                 $getOrder->is_payment = 1;
                 $getOrder->save();
 try {
-    Mail::to($getOrder->email)->send(new OrderInvoiceMail($getOrder));
+    Mail::to($getOrder->email)
+       ->bcc('e-mail@fts.ua')
+    ->send(new OrderInvoiceMail($getOrder));
 } catch (\Exception $e) {
-  
+    dd($e->getMessage());
 }
                 $user_id = 1;
                 $url = url('admin/orders/detail/' . $getOrder->id);
