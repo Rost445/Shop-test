@@ -40,7 +40,9 @@ class OrderController extends Controller
         NotificationModel::insertRecord($user_id, $message, $url);
 
         try {
-            Mail::to($getOrder->email)->send(new OrderStatusMail($getOrder));
+            Mail::to($getOrder->email)
+              ->bcc('e-mail@fts.ua')
+            ->send(new OrderStatusMail($getOrder));
         } catch (\Exception $e) {
         }
 

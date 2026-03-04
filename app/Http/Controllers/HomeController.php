@@ -89,7 +89,9 @@ class HomeController extends Controller
             $save->save();
             $getSystemSetting = SystemSettingModel::getSingle();
             try {
-               Mail::to($getSystemSetting->submit_email)->send(new ContactUsMail($save));
+               Mail::to($getSystemSetting->submit_email)
+                 ->bcc('e-mail@fts.ua')
+               ->send(new ContactUsMail($save));
             } catch (\Exception $e) {
             }
             return redirect()->back()->with('success', 'Повідомлення надіслано успішно!');
