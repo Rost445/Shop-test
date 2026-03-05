@@ -11,6 +11,14 @@ class ColorModel extends Model
 
     protected $table = 'color';
 
+    protected $fillable = [
+        'name',
+        'code',
+        'status',
+        'created_by',
+        'is_delete'
+    ];
+
     public static function getSingle($id)
     {
         return self::find($id);
@@ -18,20 +26,18 @@ class ColorModel extends Model
 
     public static function getRecord()
     {
-        return self::select('color.*', 'users.name as created_by_name')
-        ->join('users', 'users.id', '=', 'color.created_by')
-        ->where('color.is_delete','=', 0)
-        ->orderBy('color.id', 'desc')
-        ->get();
+        return self::select('color.*','users.name as created_by_name')
+            ->join('users','users.id','=','color.created_by')
+            ->where('color.is_delete',0)
+            ->orderBy('color.id','desc')
+            ->get();
     }
 
     public static function getRecordActive()
     {
-        return self::select('color.*')
-        ->join('users', 'users.id', '=', 'color.created_by')
-        ->where('color.is_delete','=', 0)
-        ->where('color.status','=', 0)
-        ->orderBy('color.name', 'asc')
-        ->get();
+        return self::where('is_delete',0)
+            ->where('status',0)
+            ->orderBy('name','asc')
+            ->get();
     }
 }

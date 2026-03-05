@@ -9,68 +9,85 @@ use Illuminate\Support\Facades\Auth;
 
 class ColorController extends Controller
 {
-    // List color
-   public function list()
-   {
-    $data['getRecord'] = ColorModel::getRecord();
-    $data['header_title'] = 'Колір';
-    return view('admin.color.list', $data);
-   }
 
-////////////////////////////////////////////////////////
-// Add color
-public function add()
-{
-  $data['header_title'] = 'Додати новий колір';
-  return view('admin.color.add', $data);
-}
-////////////////////////////////////////////////////////
-// Insert color
-public function insert(Request $request)
-{
+    // список
+    public function list()
+    {
+        $data['getRecord'] = ColorModel::getRecord();
+        $data['header_title'] = 'Колір';
 
-  $color = new ColorModel;
-  $color->name = trim($request->name);
-  $color->code = trim($request->code);
-  $color->status = trim($request->status);
-  $color->created_by = Auth::user()->id;
-  $color->save();
+        return view('admin.color.list',$data);
+    }
 
-  return redirect('admin/color/list')->with('success', 'Колір успішно створено!');
-}
-////////////////////////////////////////////////////////
-// Edit Category
-public function edit($id)
-{
-  $data['getRecord'] = ColorModel::getSingle($id);
-  $data['header_title'] = 'Редагувати Колір';
-  return view('admin.color.edit', $data);
-}
-////////////////////////////////////////////////////////
-// Update Category
-public function update(Request $request, $id){
+    // форма додавання
+    public function add()
+    {
+        $data['header_title'] = 'Додати новий колір';
 
-  $request->validate([
-   
-    'status' => 'required|in:0,1',  // Убедитесь, что статус - это либо 0, либо 1
-]);
-    $color = ColorModel::getSingle($id);
-    $color->name = trim($request->name);
-    $color->code = trim($request->code);
-    $color->status = (int)$request->status;
-    $color->created_by = Auth::user()->id;
-    $color->save();
+        return view('admin.color.add',$data);
+    }
 
-    return redirect('admin/color/list')->with('success', 'Колір успішно оновлено!');
-  }
-////////////////////////////////////////////////////////
-  // Delete Category
-  public function delete($id)
-  {
-     $category = ColorModel::getSingle($id);
-     $category->is_delete = 0;
-     $category->save();
+    // створення
+    public function insert(Request $request)
+    {
 
-     return redirect()->back()->with('success', 'Колір успішно видалений!');
-  }
+        $request->validate([
+            'name' => 'required',
+            'code' => 'required'
+        ]);
+
+        ColorModel::create([
+            'name' => trim($request->name),
+            'code' => trim($request->code),
+            'status' => $request->status,
+            'created_by' => Auth::id(),
+            'is_delete' => 0
+        ]);
+
+        return redirect('admin/color/list')->with('success','Колір успішно створено!');
+    }
+
+    // редагування
+    public function edit($id)
+    {
+        $data['getRecord'] = ColorModel::getSingle($id);
+        $data['header_title'] = 'Редагувати колір';
+
+        return view('admin.color.edit',$data);
+    }
+
+    // оновлення
+    public function update(Request $request,$id)
+    {
+
+        $request->validate([
+            'name'=>'required',
+            'status'=>'required|in:0,1'
+        ]);
+
+        $color = ColorModel::getSingle($id);
+
+        $color->name = trim($request->name);
+        $color->code = trim($request->code);
+        $color->status = $request->status;
+
+        $color->save();
+
+        return redirect('admin/color/list')->with('success','Колір успішно оновлено!');
+    }
+
+    // видалення
+    public function delete($id)
+    {
+        $color = ColorModel::getSingle($id);
+
+        if($color)
+        {
+            $color->is_delete = 1;
+            $color->save();
+        }
+
+        return redirect()->back()->with('success','Колір успішно видалений!');
+    }
+
 }

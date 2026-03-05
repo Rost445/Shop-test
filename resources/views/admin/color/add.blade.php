@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 @section('style')
+
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -29,16 +30,17 @@
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Назва коліру<span
+                                        <label>Назва кольору<span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="name" class="form-control"
-                                            placeholder="Введіть назву коліру" required value="{{ old('name') }}">
+                                            placeholder="Введіть назву кольору" required value="{{ old('name') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label>Код коліру<span class="text-danger">*</span></label>
+                                        <label>Код кольору<span class="text-danger">*</span></label>
                                         <input type="color" name="code" class="form-control"
-                                            placeholder="Виберіть код коліру" required value="{{ old('code') }}">
+                                            placeholder="Виберіть код кольору" required value="{{ old('code') }}">
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label>Статус <span class="text-danger">*</span></label>
                                         <select class="form-control text-primary border border-primary" name="status" required>

@@ -8,6 +8,7 @@
             text-align: center;
 
         }
+        
     </style>
 @endsection
 
@@ -60,7 +61,22 @@
                                                 <tr>
                                                     <td>{{ $value->id }}</td>
                                                     <td>{{ $value->name }}</td>
-                                                    <td>{{ $value->code }}</td>
+                                                    <td>
+    <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+        
+        <div style="
+            width:25px;
+            height:25px;
+            border-radius:4px;
+            border:1px solid #ccc;
+            border-radius:50%;
+            background:{{ $value->code }};
+        "></div>
+
+        <span>{{ $value->code }}</span>
+
+    </div>
+</td>
                                                     <td>{{ $value->created_by_name }}</td>
                                                     <td>{!! $value->status == 0 ? '<i class="fas fa-check-circle text-success"></i>' : '<i class="fas fa-minus-circle text-secondary"></i>' !!}</td>
                                                     <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
