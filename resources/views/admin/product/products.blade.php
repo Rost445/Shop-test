@@ -122,5 +122,38 @@
 @endsection
 
 @section('script')
+@section('script')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const fileInput = document.querySelector('.custom-file-input');
+    const label = document.querySelector('.custom-file-label');
+    const form = fileInput.closest('form');
+
+    // показати назву файлу + іконку Excel
+    fileInput.addEventListener('change', function (e) {
+        if (e.target.files.length > 0) {
+            const fileName = e.target.files[0].name;
+            const ext = fileName.split('.').pop().toLowerCase();
+
+            if (ext === 'xlsx' || ext === 'xls') {
+                label.innerHTML = '<i class="fas fa-file-excel text-success"></i> ' + fileName;
+            } else {
+                label.innerHTML = '<i class="fas fa-file"></i> ' + fileName;
+            }
+        }
+    });
+
+    // очистити після відправки форми
+    form.addEventListener('submit', function () {
+        setTimeout(function(){
+            fileInput.value = "";
+            label.innerText = "Виберіть файл";
+        }, 500);
+    });
+
+});
+</script>
+@endsection
 @endsection
 

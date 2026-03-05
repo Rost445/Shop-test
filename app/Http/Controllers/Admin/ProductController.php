@@ -17,6 +17,8 @@ use App\Models\ProductColorModel;
 use App\Models\ProductSizeModel;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 
 
@@ -193,11 +195,11 @@ class ProductController extends Controller
     }
 
 
-    /**
-
-     * @return \Illuminate\Support\Collection
-
-     */
+/**
+ * Експорт продуктів у Excel
+ *
+ * @return BinaryFileResponse
+ */
 
     public function export()
 
@@ -206,10 +208,10 @@ class ProductController extends Controller
     }
 
     /**
-
-     * @return \Illuminate\Support\Collection
-
-     */
+ * Імпорт продуктів з Excel
+ *
+ * @return RedirectResponse
+ */
     public function import()
 
     {
@@ -218,6 +220,6 @@ class ProductController extends Controller
 
 
 
-        return back();
+        return redirect()->back()->with('success', 'Файл успішно імпортовано!');
     }
 }
