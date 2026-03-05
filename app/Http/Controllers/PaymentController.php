@@ -291,11 +291,25 @@ try {
 } catch (\Exception $e) {
     dd($e->getMessage());
 }
-                $user_id = 1;
-                $url = url('admin/orders/detail/' . $getOrder->id);
-                $message = "Нове замовлення №" . $getOrder->order_number;
+              // 🔔 Сповіщення адміну
+$admins = User::where('is_admin', 1)->get();
 
-                NotificationModel::insertRecord($user_id, $message, $url);
+foreach ($admins as $admin) {
+    NotificationModel::insertRecord(
+        $admin->id,
+        "Нове замовлення №" . $getOrder->order_number,
+        url('admin/orders/detail/' . $getOrder->id)
+    );
+}
+
+// 🔔 Сповіщення користувачу
+if (!empty($getOrder->user_id)) {
+    NotificationModel::insertRecord(
+        $getOrder->user_id,
+        "Ваше замовлення №" . $getOrder->order_number . " успішно оформлено",
+        url('user/orders')
+    );
+}
 
                 Cart::clear();
 

@@ -133,10 +133,15 @@ class AuthController extends Controller
         } catch (\Exception $e) {
         }
 
-        $user_id = 1;
-        $url = url('admin/customer/list');
-        $message = "Новий користувач зареєстрований #" . $request->name;
-        NotificationModel::insertRecord($user_id, $message, $url);
+       $adminUsers = User::where('is_admin', 1)->get();
+
+foreach ($adminUsers as $admin) {
+    NotificationModel::insertRecord(
+        $admin->id,
+        "Новий користувач зареєстрований #" . $request->name,
+        url('admin/customer/list')
+    );
+}
 
         $json['status'] = true;
         $json['message'] = "Ваш акаунт створено успішно! Лист з активацією вислано на вказану вами електронну адресу.";

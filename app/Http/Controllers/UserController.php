@@ -92,7 +92,7 @@ class UserController extends Controller
       $data['meta_title'] = 'Сповіщення';
       $data['meta_keywords'] = '';
       $data['meta_description'] = '';
-      $data['getRecord'] = NotificationModel::getRecordUser(Auth::user()->id);
+   $data['getRecord'] = NotificationModel::getByUser(Auth::user()->id);
 
       return view('user.notification', $data);
    }

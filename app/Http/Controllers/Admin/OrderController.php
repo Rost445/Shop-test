@@ -28,25 +28,38 @@ class OrderController extends Controller
         return view('admin.order.detail', $data);
     }
 
-    public function order_status(Request $request)
-    {
-        $getOrder = OrderModel::getSingle($request->order_id);
-        $getOrder->status = $request->status;
-        $getOrder->save();
+   public function order_status(Request $request)
+{
+    $getOrder = OrderModel::getSingle($request->order_id);
+    $getOrder->status = $request->status;
+    $getOrder->save();
 
-        $user_id =  1;
-        $url = url('user/orders');
-        $message = "Замовлення №" . $getOrder->order_number . "<br> Статус оновлено";
-        NotificationModel::insertRecord($user_id, $message, $url);
+    $message = "Замовлення №".$getOrder->order_number."<br> Статус оновлено";
 
-        try {
-            Mail::to($getOrder->email)
-              ->bcc('e-mail@fts.ua')
-            ->send(new OrderStatusMail($getOrder));
-        } catch (\Exception $e) {
-        }
-
-        $json['message'] = "Статус успішно оновлено!";
-        echo json_encode($json);
+    /* користувач */
+    if(!empty($getOrder->user_id)){
+        NotificationModel::insertRecord(
+            $getOrder->user_id,
+            $message,
+            url('user/orders')
+        );
     }
+
+    /* адмін */
+    NotificationModel::insertRecord(
+        1,
+        $message,
+        url('admin/orders/detail/'.$getOrder->id)
+    );
+
+    try {
+        Mail::to($getOrder->email)
+            ->bcc('e-mail@fts.ua')
+            ->send(new OrderStatusMail($getOrder));
+    } catch (\Exception $e) {}
+
+    return response()->json([
+        'message' => "Статус успішно оновлено!"
+    ]);
+}
 }

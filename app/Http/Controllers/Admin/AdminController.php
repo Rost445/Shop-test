@@ -152,6 +152,13 @@ if (auth()->id() === $user->id) {
         return redirect()->back()->with('error', 'Відгук не знайдено!');
     }
 }
+public function notifications()
+{
+    $data['meta_title'] = 'Сповіщення';
+    $data['getRecord'] = NotificationModel::getAll();
+
+    return view('admin.notification', $data);
+}
 
 
 

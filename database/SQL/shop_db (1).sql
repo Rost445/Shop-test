@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: MySQL-8.4:3306
--- Час створення: Лют 28 2026 р., 14:11
+-- Час створення: Бер 05 2026 р., 08:40
 -- Версія сервера: 8.4.7
 -- Версія PHP: 8.4.16
 
@@ -44,16 +44,6 @@ CREATE TABLE `blog` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп даних таблиці `blog`
---
-
-INSERT INTO `blog` (`id`, `title`, `slug`, `blog_category_id`, `image_name`, `short_description`, `description`, `meta_title`, `meta_description`, `meta_keywords`, `total_view`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(10, 'Unde veniam numquam', 'Unde veniam numquam', 1, 'e13qey3cdbujqnxowimg.png', 'The standard chunk of Lorem Ipsum uContrary to popular belief,', '<p>The standard chunk of Lorem Ipsum uContrary to popular belief, Lorem Ipsum is not simply random text. It \r\nhas roots in a piece of classical Latin literature from 45 BC, making it\r\n over 2000 years old. Richard McClintock, a Latin professor at \r\nHampden-Sydney College in Virginia, looked up one of the more obscure Lsed since the 1500s is reproduced \r\nbelow for those interested. </p>', 'Eos expedita molest', 'Aut eveniet quia co', 'Eligendi et expedita', 39, 0, 0, '2025-01-20 20:38:04', '2025-01-30 19:18:35'),
-(11, 'Laborum Occaecat qu', 'laborum-occaecat-qu', 1, 'hn1y53nxjoybfb7wli8a.png', 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.', '<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced \r\nbelow for those interested. Sections 1.10.32 and 1.10.33 from \"de \r\nFinibus Bonorum et Malorum\" by Cicero are also reproduced in their exact\r\n original form, accompanied by English versions from the 1914 \r\ntranslation by H. Rackham.</p>', 'Sit duis dolor enim', 'Quia id repudiandae', 'Quis amet ullam ven', 12, 0, 0, '2025-01-20 20:42:44', '2025-01-30 19:49:37'),
-(13, 'Blanditiis ea culpa', 'blanditiis-ea-culpa', 1, 'kghmeaa4wwnelfdsnlmd.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '<strong>Lorem Ipsum</strong> is simply dummy text of the printing and \r\ntypesetting industry. Lorem Ipsum has been the industry\'s standard dummy\r\n text ever since the 1500s, when an unknown printer took a galley of \r\ntype and scrambled it to make a type specimen book. It has survived not \r\nonly five centuries, but also the leap into electronic typesetting, \r\nremaining essentially unchanged. It was popularised in the 1960s with \r\nthe release of Letraset sheets containing Lorem Ipsum passages, and more\r\n recently with desktop publishing software like Aldus PageMaker \r\nincluding versions of Lorem Ipsum.', 'Repudiandae qui face', 'Neque rerum quod ani', 'Dignissimos rerum to', 47, 0, 0, '2025-01-20 21:13:38', '2026-02-28 10:23:19'),
-(14, 'Molestiae voluptatem1', 'molestiae-voluptatem', 2, 'alhb6cw4tfszaahreblb.png', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', 'It is a long established fact that a reader will be distracted by the \r\nreadable content of a page when looking at its layout. The point of \r\nusing Lorem Ipsum is that it has a more-or-less normal distribution of \r\nletters, as opposed to using \'Content here, content here\', making it \r\nlook like readable English. Many desktop publishing packages and web \r\npage editors now use Lorem Ipsum as their default model text, and a \r\nsearch for \'lorem ipsum\' will uncover many web sites still in their \r\ninfancy. Various versions have evolved over the years, sometimes by \r\naccident, sometimes on purpose (injected humour and the like).', 'Minim dignissimos pl', 'Dolore rem sint con', 'Consectetur nemo vo', 95, 0, 0, '2025-01-20 21:26:08', '2025-02-14 17:35:21');
 
 -- --------------------------------------------------------
 
@@ -96,15 +86,6 @@ CREATE TABLE `blog_comment` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп даних таблиці `blog_comment`
---
-
-INSERT INTO `blog_comment` (`id`, `user_id`, `blog_id`, `comment`, `created_at`, `updated_at`) VALUES
-(5, 1, 14, 'Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.', '2025-01-29 19:38:06', '2025-01-29 19:38:06'),
-(6, 1, 14, 'Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.', '2025-01-29 19:39:14', '2025-01-29 19:39:14'),
-(7, 1, 14, 'Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. \r\n', '2025-01-30 19:39:14', '2025-01-29 21:12:00');
 
 -- --------------------------------------------------------
 
@@ -149,13 +130,6 @@ CREATE TABLE `card_setting` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп даних таблиці `card_setting`
---
-
-INSERT INTO `card_setting` (`id`, `card_number`, `name_owner`, `surname`, `bank`, `created_at`, `updated_at`) VALUES
-(1, '177467908234', 'Nayda', 'Carney', 'Монобанк', '2025-02-14 21:03:34', '2025-02-14 21:05:01');
 
 -- --------------------------------------------------------
 
@@ -237,33 +211,6 @@ CREATE TABLE `contact_us` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Дамп даних таблиці `contact_us`
---
-
-INSERT INTO `contact_us` (`id`, `user_id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(6, 1, 'Georgia Park', 'vecofucuw@mailinator.com', '+1 (628) 376-3176', 'Enim facere omnis es', 'Voluptate sunt sunt', '2025-01-02 21:47:24', '2025-01-02 21:47:24'),
-(7, 1, 'Neve Hudson', 'fivi@mailinator.com', '+1 (873) 645-5916', 'Adipisci nemo blandi', 'Est sunt accusantium', '2025-01-02 21:58:59', '2025-01-02 21:58:59'),
-(8, 1, 'Xander Sykes', 'qudijuhag@mailinator.com', '+1 (105) 301-9466', 'Sint sed porro ex t', 'Aut ullamco repellen', '2025-01-02 21:59:24', '2025-01-02 21:59:24'),
-(9, 1, 'Hollee Chandler', 'suwij@mailinator.com', '+1 (736) 572-5448', 'Doloribus dolore ull', 'Earum sint minim sun', '2025-01-02 22:18:54', '2025-01-02 22:18:54'),
-(13, 1, 'Bianca Ashley', 'locyvucixi@mailinator.com', '+1 (234) 902-7182', 'Animi a sed ut magn', 'Cupidatat exercitati', '2025-02-10 22:16:49', '2025-02-10 22:16:49'),
-(14, 1, 'Isadora Wallace', 'xymofoba@mailinator.com', '+1 (479) 632-6841', 'Enim non sed vel tem', 'Ex cupiditate lorem', '2025-02-10 22:20:29', '2025-02-10 22:20:29'),
-(15, 1, 'Isadora Wallace', 'xymofoba@mailinator.com', '+1 (479) 632-6841', 'Enim non sed vel tem', 'Ex cupiditate lorem', '2025-02-10 22:32:34', '2025-02-10 22:32:34'),
-(16, 1, 'Malcolm Barton', 'zerobi@mailinator.com', '+1 (458) 647-7014', 'Ut quis sapiente ius', 'Vel quod eveniet ma', '2025-02-10 22:34:48', '2025-02-10 22:34:48'),
-(17, NULL, 'Athena Lamb', 'lixewytyk@mailinator.com', '+1 (601) 192-7823', 'Enim sed nostrum vol', 'Cillum non dolor con', '2025-02-11 17:30:09', '2025-02-11 17:30:09'),
-(18, 1, 'Derek Sweet', 'cufubowedo@mailinator.com', '+1 (732) 579-6742', 'Tenetur corporis qui', 'Vero ut possimus do', '2025-02-13 22:11:56', '2025-02-13 22:11:56'),
-(19, 1, 'Gil Lucas', 'medehome@mailinator.com', '+1 (694) 608-9939', 'Laudantium pariatur', 'Amet laboris enim s', '2025-02-13 23:56:26', '2025-02-13 23:56:26'),
-(20, 1, 'Gil Lucas', 'medehome@mailinator.com', '+1 (694) 608-9939', 'Laudantium pariatur', 'Amet laboris enim s', '2025-02-14 00:11:42', '2025-02-14 00:11:42'),
-(21, 1, 'Gil Lucas', 'medehome@mailinator.com', '+1 (694) 608-9939', 'Laudantium pariatur', 'Amet laboris enim s', '2025-02-14 00:11:56', '2025-02-14 00:11:56'),
-(22, 1, 'Gil Lucas', 'medehome@mailinator.com', '+1 (694) 608-9939', 'Laudantium pariatur', 'Amet laboris enim s', '2025-02-14 00:20:42', '2025-02-14 00:20:42'),
-(23, 1, 'Ariel Christian', 'wimumyran@mailinator.com', '+1 (491) 471-7851', 'Voluptatem qui eum m', 'Velit fugiat expedit', '2025-02-14 00:21:13', '2025-02-14 00:21:13'),
-(24, 1, 'Ariel Christian', 'wimumyran@mailinator.com', '+1 (491) 471-7851', 'Voluptatem qui eum m', 'Velit fugiat expedit', '2025-02-14 00:25:40', '2025-02-14 00:25:40'),
-(25, 1, 'Ariel Christian', 'wimumyran@mailinator.com', '+1 (491) 471-7851', 'Voluptatem qui eum m', 'Velit fugiat expedit', '2025-02-14 00:38:17', '2025-02-14 00:38:17'),
-(26, 1, 'Blythe Chen', 'paqycog@mailinator.com', '+1 (967) 154-7942', 'Qui placeat eius no', 'Exercitationem nulla', '2025-02-14 00:41:05', '2025-02-14 00:41:05'),
-(27, 1, 'Callie Castaneda', 'bypidoco@mailinator.com', '+1 (114) 585-8898', 'Sint architecto recu', 'Recusandae Velit qu', '2025-02-14 00:44:07', '2025-02-14 00:44:07'),
-(28, 1, 'Geoffrey Leonard', 'vicyw@mailinator.com', '+1 (124) 631-7666', 'Facilis cupidatat ve', 'Et et anim maiores d', '2025-02-14 00:46:39', '2025-02-14 00:46:39'),
-(29, 1, 'Kendall Eaton', 'rahihoc@mailinator.com', '+1 (616) 808-1716', 'Voluptatem sint mini', 'In molestiae nihil s', '2025-02-15 22:09:32', '2025-02-15 22:09:32');
-
 -- --------------------------------------------------------
 
 --
@@ -287,7 +234,7 @@ CREATE TABLE `discount_code` (
 --
 
 INSERT INTO `discount_code` (`id`, `name`, `type`, `percent_amount`, `expire_date`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(13, 'november_rain', 'Процент', '10', '2025-01-10', 0, 0, '2024-11-05 06:46:07', '2025-01-06 00:58:40');
+(13, 'november_rain', 'Процент', '10', '2026-03-31', 0, 0, '2024-11-05 06:46:07', '2025-01-06 00:58:40');
 
 -- --------------------------------------------------------
 
@@ -343,6 +290,22 @@ INSERT INTO `home_setting` (`id`, `trendy_product_title`, `shop_category_title`,
 -- --------------------------------------------------------
 
 --
+-- Структура таблиці `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` bigint UNSIGNED NOT NULL,
+  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attempts` tinyint UNSIGNED NOT NULL,
+  `reserved_at` int UNSIGNED DEFAULT NULL,
+  `available_at` int UNSIGNED NOT NULL,
+  `created_at` int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблиці `migrations`
 --
 
@@ -363,7 +326,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2025_01_26_214725_add_role_to_users_table', 2),
 (6, '2025_01_26_215222_add_role_to_users_table', 3),
-(8, '2025_01_26_223338_add_is_super_admin_to_users_table', 4);
+(8, '2025_01_26_223338_add_is_super_admin_to_users_table', 4),
+(9, '2026_03_01_163618_create_jobs_table', 5);
 
 -- --------------------------------------------------------
 
@@ -386,12 +350,16 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`id`, `user_id`, `url`, `message`, `is_read`, `created_at`, `updated_at`) VALUES
-(96, 1, 'https://site.virtual/user/orders', 'Замовлення №618180380<br> Статус оновлено', 1, '2025-02-19 01:14:14', '2025-02-19 01:14:25'),
-(97, 1, 'https://site.virtual/admin/customer/list', 'Новий користувач зареєстрований #test', 1, '2025-02-19 01:22:55', '2025-02-19 01:29:16'),
-(98, 1, 'https://shop.test.ua/admin/orders/detail/157', 'Нове замовлення №796761245', 1, '2026-02-28 10:10:19', '2026-02-28 10:16:49'),
-(99, 1, 'https://shop.test.ua/admin/orders/detail/158', 'Нове замовлення №488697933', 1, '2026-02-28 10:12:08', '2026-02-28 10:24:46'),
-(100, 1, 'https://shop.test.ua/admin/orders/detail/159', 'Нове замовлення №428388901', 1, '2026-02-28 10:13:54', '2026-02-28 10:24:50'),
-(101, 1, 'https://shop.test.ua/admin/orders/detail/160', 'Нове замовлення №673102942', 1, '2026-02-28 10:22:05', '2026-02-28 10:24:52');
+(202, 1, 'https://shop.test.ua/admin/orders/detail/264', 'Нове замовлення №769672039', 1, '2026-03-05 08:23:14', '2026-03-05 08:24:43'),
+(203, 205, 'https://shop.test.ua/user/orders', 'Ваше замовлення №769672039 успішно оформлено', 1, '2026-03-05 08:23:14', '2026-03-05 08:23:52'),
+(204, 205, 'https://shop.test.ua/user/orders', 'Замовлення №769672039<br> Статус оновлено', 1, '2026-03-05 08:25:45', '2026-03-05 08:26:15'),
+(205, 1, 'https://shop.test.ua/admin/order/detail/264', 'Замовлення №769672039<br> Статус оновлено', 0, '2026-03-05 08:25:45', '2026-03-05 08:25:45'),
+(206, 205, 'https://shop.test.ua/user/orders', 'Замовлення №769672039<br> Статус оновлено', 1, '2026-03-05 08:32:49', '2026-03-05 08:34:53'),
+(207, 1, 'https://shop.test.ua/admin/orders/detail/264', 'Замовлення №769672039<br> Статус оновлено', 1, '2026-03-05 08:32:49', '2026-03-05 08:32:57'),
+(208, 205, 'https://shop.test.ua/user/orders', 'Замовлення №769672039<br> Статус оновлено', 0, '2026-03-05 08:35:39', '2026-03-05 08:35:39'),
+(209, 1, 'https://shop.test.ua/admin/orders/detail/264', 'Замовлення №769672039<br> Статус оновлено', 0, '2026-03-05 08:35:39', '2026-03-05 08:35:39'),
+(210, 205, 'https://shop.test.ua/user/orders', 'Замовлення №769672039<br> Статус оновлено', 0, '2026-03-05 08:36:18', '2026-03-05 08:36:18'),
+(211, 1, 'https://shop.test.ua/admin/orders/detail/264', 'Замовлення №769672039<br> Статус оновлено', 0, '2026-03-05 08:36:18', '2026-03-05 08:36:18');
 
 -- --------------------------------------------------------
 
@@ -401,7 +369,6 @@ INSERT INTO `notification` (`id`, `user_id`, `url`, `message`, `is_read`, `creat
 
 CREATE TABLE `orders` (
   `id` int NOT NULL,
-  `stripe_session_id` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `order_number` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `first_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -429,100 +396,8 @@ CREATE TABLE `orders` (
 -- Дамп даних таблиці `orders`
 --
 
-INSERT INTO `orders` (`id`, `stripe_session_id`, `order_number`, `first_name`, `last_name`, `company_name`, `phone`, `email`, `delivery_address`, `note`, `shipping_id`, `shipping_amount`, `discount_code`, `discount_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`, `user_id`) VALUES
-(66, NULL, NULL, 'Moana', 'Gould', 'Alford Wilkerson Traders', '+1 (955) 787-8077', 'pukutibe@mailinator.com', 'Sed optio ut aut fa', 'Sequi necessitatibus', 6, '70', 'november_rain', '10', '140', 'Післяплата', 3, 0, 1, NULL, '2024-11-15 13:52:14', '2024-12-23 19:39:40', 1),
-(69, NULL, NULL, 'Ramona', 'Dejesus', 'Sexton Rodgers Co', '+1 (547) 287-7732', 'zukyc@mailinator.com', 'Tenetur minus iste e', 'Sit magna non aut ve', 5, '0', 'november_rain', '10', '600.5', 'Платіжна картка', 0, 0, 1, NULL, '2024-11-15 14:07:37', '2024-11-15 14:07:37', 90),
-(70, NULL, NULL, 'Vincent', 'Kennedy', 'Moreno and Oneil Inc', '+1 (173) 189-2465', 'pytubocuv@mailinator.com', 'Ut quibusdam sed cil', 'Adipisci facilis dig', 6, '70', '', '0', '1901.5', 'Платіжна картка', 0, 0, 1, NULL, '2024-11-15 14:14:40', '2024-11-15 14:14:41', 91),
-(71, NULL, NULL, 'Nero', 'Richard', 'Pruitt and Levine Trading', '+1 (755) 279-4895', 'roqono@mailinator.com', 'Sint eum deleniti l', 'Architecto quidem ma', 5, '0', 'november_rain', '10', '1564', 'Платіжна картка', 0, 0, 1, NULL, '2024-11-15 14:34:57', '2024-11-15 14:34:57', 92),
-(72, NULL, NULL, 'Kaseem', 'Ware', 'Reynolds Pickett Trading', '+1 (733) 946-9756', 'cosi@mailinator.com', 'Recusandae Illo vol', 'Reiciendis sit eius', 5, '0', '', '0', '80', 'Платіжна картка', 0, 0, 1, NULL, '2024-11-18 10:28:24', '2024-11-18 10:28:24', 93),
-(73, NULL, NULL, 'Grant', 'Munoz', 'Patrick and Baird LLC', '+1 (384) 934-8693', 'syrovojyf@mailinator.com', 'Consequatur asperior', 'Aliquid ea et vel ne', 6, '70', '', '0', '110', 'Післяплата', 0, 0, 1, NULL, '2024-11-19 07:26:06', '2024-11-19 07:26:07', 94),
-(74, NULL, '452151733', 'Taylor', 'Fisher', 'Flowers and Pope Trading', '+1 (991) 955-9159', 'lohanykox@mailinator.com', 'Consequatur sunt en', 'Reiciendis debitis a', 6, '70', '', '0', '161', 'Післяплата', 0, 0, 1, NULL, '2024-11-19 10:20:15', '2024-11-19 10:20:16', NULL),
-(75, NULL, '333946622', 'Isaac', 'Green', 'Rollins and Cruz Associates', '+1 (309) 692-5864', 'vacose@mailinator.com', 'Consequatur fugiat e', 'Deserunt natus minus', 5, '0', 'november_rain', '10', '172', 'Післяплата', 0, 0, 1, NULL, '2024-11-19 10:28:29', '2024-11-19 10:28:29', 95),
-(76, NULL, '359100696', 'Isaac', 'Green', 'Rollins and Cruz Associates', '+1 (309) 692-5864', 'vae@mailinator.com', 'Consequatur fugiat e', 'Deserunt natus minus', 6, '70', 'november_rain', '10', '242', 'Післяплата', 0, 0, 1, NULL, '2024-11-19 10:29:46', '2024-11-19 10:29:46', 96),
-(77, NULL, '275824007', 'Nathaniel', 'Palmer', 'Oneill Dunlap Inc', '+1 (231) 878-5389', 'puqax@mailinator.com', 'Ea omnis autem dolor', 'Est et cum sunt qui', 6, '70', '', '0', '252', 'Післяплата', 0, 0, 1, NULL, '2024-11-19 10:42:43', '2024-11-19 10:42:43', NULL),
-(78, NULL, '319622668', 'Anika', 'Wall', 'Nixon Greene Traders', '+1 (203) 541-8981', 'vasux@mailinator.com', 'Nostrud necessitatib', 'Sint quis fugiat na', 6, '70', 'november_rain', '10', '151', 'Післяплата', 0, 0, 1, NULL, '2024-11-19 12:44:19', '2024-11-19 12:44:19', NULL),
-(79, NULL, '680396939', 'Kieran', 'Chapman', 'Spence Cabrera Traders', '+1 (739) 236-4407', 'povyboqi@mailinator.com', 'Sed dolorem ea offic', 'Non velit duis rerum', 5, '0', '', '0', '91', 'Платіжна картка', 0, 0, 1, NULL, '2024-11-19 12:49:18', '2024-11-19 12:49:18', NULL),
-(80, NULL, '919915538', 'Kieran', 'Chapman', 'Spence Cabrera Traders', '+1 (739) 236-4407', 'povyboqi@mailinator.com', 'Sed dolorem ea offic', 'Non velit duis rerum', 5, '0', '', '0', '0', 'Післяплата', 0, 0, 0, NULL, '2024-11-19 12:49:32', '2024-11-19 12:49:32', NULL),
-(81, NULL, '237142730', 'Germaine', 'Berg', 'York Hull LLC', '+1 (144) 759-2399', 'vezuquwan@mailinator.com', 'Eu quas sed dolor ne', 'Amet accusamus qui', 5, '0', '', '0', '91', 'Післяплата', 0, 0, 1, NULL, '2024-11-19 12:50:16', '2024-11-19 12:50:16', NULL),
-(82, NULL, '761473328', 'Germaine', 'Berg', 'York Hull LLC', '+1 (144) 759-2399', 'vezuquwan@mailinator.com', 'Eu quas sed dolor ne', 'Amet accusamus qui', 5, '0', 'november_rain', '10', '81', 'Платіжна картка', 0, 0, 1, NULL, '2024-11-19 12:52:16', '2024-11-19 12:52:16', NULL),
-(83, NULL, '359392668', 'Declan', 'Rios', 'Nichols Barnett Traders', '+1 (273) 434-1848', 'ryba@mailinator.com', 'Vitae officia ab cum', 'Dolorem amet enim p', 5, '0', '', '0', '0', 'Післяплата', 0, 0, 0, NULL, '2024-11-19 12:57:48', '2024-11-19 12:57:48', 1),
-(84, NULL, '506746924', 'Wynter', 'Cohen', 'Garrison Stone Trading', '+1 (506) 577-8328', 'dobijavedi@mailinator.com', 'Aut nisi deleniti pe', 'Quis aut ullamco ver', 6, '70', 'november_rain', '10', '1116.5', 'Післяплата', 0, 0, 1, NULL, '2024-11-19 13:02:48', '2024-11-19 13:02:48', 1),
-(85, NULL, '290490360', 'Paul', 'Carrillo', 'Cannon and Huffman Plc', '+1 (142) 877-3455', 'luwih@mailinator.com', 'Atque porro elit la', 'Ullam tempora fugiat', 6, '70', 'november_rain', '10', '1116.5', 'Платіжна картка', 0, 0, 1, NULL, '2024-11-19 14:27:18', '2024-11-19 14:27:18', 1),
-(86, NULL, '307646824', 'Barrett', 'Sutton', 'Hull and Whitney Trading', '+1 (941) 533-3172', 'rorozene@mailinator.com', 'Dolor cum nostrud do', 'Vel a veritatis dist', 5, '0', '', '0', '1221', 'Платіжна картка', 2, 0, 1, NULL, '2024-11-28 13:34:43', '2024-12-10 14:37:01', 97),
-(87, NULL, '735910523', 'Nero', 'Donaldson', 'Baldwin and Mcmillan Traders', '+1 (478) 116-5549', 'gejinokeg@mailinator.com', 'Ut quis vitae volupt', 'Nobis adipisci odit', 5, '0', '', '0', '45', 'Платіжна картка', 4, 0, 1, NULL, '2024-12-11 08:45:52', '2024-12-11 10:24:59', 1),
-(88, NULL, '516148303', 'Tyler', 'King', 'Gilliam Keller Co', '+1 (404) 892-2488', 'mozice@mailinator.com', 'Tempor qui voluptas', 'Quis sunt obcaecati', 6, '70', '', '0', '110', 'Післяплата', 3, 0, 1, NULL, '2024-12-12 12:01:52', '2024-12-29 18:37:26', 1),
-(89, NULL, '606246421', 'Tyler', 'King', 'Gilliam Keller Co', '+1 (404) 892-2488', 'mozice@mailinator.com', 'Tempor qui voluptas', 'Quis sunt obcaecati', 6, '70', '', '0', '110', 'Післяплата', 0, 0, 1, NULL, '2024-12-12 12:02:18', '2024-12-12 12:02:18', 1),
-(90, NULL, '694022531', 'Tyler', 'King', 'Gilliam Keller Co', '+1 (404) 892-2488', 'mozice@mailinator.com', 'Tempor qui voluptas', 'Quis sunt obcaecati', 6, '70', '', '0', '110', 'Післяплата', 0, 0, 1, NULL, '2024-12-12 12:03:39', '2024-12-12 12:03:40', 1),
-(91, NULL, '447081150', 'Ria', 'Conner', 'Pennington and Larsen Traders', '+1 (723) 587-6419', 'gewaluguja@mailinator.com', 'Voluptatibus in repe', 'Praesentium quas qui', 5, '0', '', '0', '91', 'Платіжна картка', 3, 0, 1, NULL, '2024-12-12 13:50:11', '2024-12-23 19:34:34', 98),
-(92, NULL, '722017845', 'Medge Frost', 'Frost', 'Medge Frost Company', '+12345678', 'nasixanipu@mailinator.com', 'Нова пошта, Коломия, Відділення №3,пл. Старий ринок, 2Б ', 'sfASFafAFSasfASFsa', 5, '0', '', '0', '1131', 'Післяплата', 3, 0, 1, NULL, '2024-12-25 11:57:15', '2024-12-29 18:33:31', 100),
-(93, NULL, '991809963', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '1494', 'Платіжна картка', 0, 0, 1, NULL, '2025-01-05 18:41:38', '2025-01-05 18:41:38', 1),
-(94, NULL, '423195992', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '182', 'Платіжна картка', 0, 0, 1, NULL, '2025-01-05 18:45:11', '2025-01-05 18:45:11', 1),
-(95, NULL, '460389389', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '273', 'Післяплата', 0, 0, 1, NULL, '2025-01-05 18:53:06', '2025-01-05 18:53:06', 1),
-(96, NULL, '260681059', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '160', 'Післяплата', 0, 0, 1, NULL, '2025-01-05 19:04:58', '2025-01-05 19:04:59', 1),
-(97, NULL, '756378019', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '611', 'Післяплата', 0, 0, 1, NULL, '2025-01-05 19:42:54', '2025-01-05 19:42:54', 1),
-(98, NULL, '350837368', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '921', 'Платіжна картка', 0, 0, 1, NULL, '2025-01-05 19:49:32', '2025-01-05 19:49:32', 1),
-(99, NULL, '128743156', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '305.5', 'Післяплата', 0, 0, 1, NULL, '2025-01-05 22:26:00', '2025-01-05 22:26:00', 1),
-(100, NULL, '498541006', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '864', 'Платіжна картка', 0, 0, 1, NULL, '2025-01-05 22:27:33', '2025-01-05 22:27:34', 1),
-(101, NULL, '216251332', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '195', 'Післяплата', 1, 0, 1, NULL, '2025-01-05 23:01:34', '2025-02-11 22:55:04', 1),
-(102, NULL, '431327790', 'Lunea', 'Lloyd', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', 'november_rain', '32.5', '362.5', 'Платіжна картка', 1, 0, 1, NULL, '2025-01-06 00:59:19', '2025-02-11 22:53:05', 1),
-(103, NULL, '331445307', 'Iris', 'Alvarez', 'Norris Olson Trading', '+1 (251) 842-9708', 'nureg@mailinator.com', 'Natus voluptas tempo', 'Natus dolor commodi', 5, '0', '', '0', '0', 'Післяплата', 0, 0, 0, NULL, '2025-01-22 11:22:36', '2025-01-22 11:22:36', NULL),
-(104, NULL, '841909726', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '400', 'Післяплата', 2, 0, 1, NULL, '2025-02-03 23:59:57', '2025-02-11 23:07:46', 1),
-(105, NULL, '218324297', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '342', 'Післяплата', 3, 0, 1, NULL, '2025-02-04 00:04:31', '2025-02-14 00:48:54', 1),
-(106, NULL, '823026292', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '741', 'Післяплата', 3, 0, 1, NULL, '2025-02-07 22:01:59', '2025-02-11 23:08:13', 1),
-(107, NULL, '561883369', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '344', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-07 22:07:04', '2025-02-11 23:11:41', 1),
-(108, NULL, '536838877', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '470', 'Післяплата', 0, 0, 1, NULL, '2025-02-11 23:16:09', '2025-02-11 23:16:09', 1),
-(109, NULL, '843817730', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '365', 'Післяплата', 3, 0, 1, NULL, '2025-02-13 22:13:46', '2025-02-14 00:54:10', 1),
-(110, NULL, '757676930', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '440', 'Післяплата', 0, 0, 1, NULL, '2025-02-14 00:58:43', '2025-02-14 00:58:44', 1),
-(111, NULL, '275775401', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '414', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 01:00:36', '2025-02-14 01:00:37', 1),
-(112, NULL, '373961171', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '341', 'Післяплата', 1, 0, 1, NULL, '2025-02-14 01:02:15', '2025-02-14 02:35:33', 1),
-(113, NULL, '534633049', 'Edan', 'Woodard', 'Bass and Oneill LLC', '+1 (789) 613-6017', 'covagakita@mailinator.com', 'Consectetur aut eu m', 'Quia aut excepteur o', 5, '0', '', '0', '400', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 17:52:05', '2025-02-14 17:52:05', NULL),
-(114, NULL, '522181176', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '344', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 21:25:58', '2025-02-14 21:25:58', 1),
-(115, NULL, '943332454', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '341', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 21:38:07', '2025-02-14 21:38:07', 1),
-(116, NULL, '389667027', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '510', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 21:41:26', '2025-02-14 21:41:26', 1),
-(117, NULL, '370998462', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '341', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 21:43:25', '2025-02-14 21:43:26', 1),
-(118, NULL, '116844633', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '411', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 21:44:58', '2025-02-14 21:44:58', 1),
-(119, NULL, '366506472', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '412', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:19:03', '2025-02-14 22:19:03', 1),
-(120, NULL, '922407160', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '412', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:23:34', '2025-02-14 22:23:35', 1),
-(121, NULL, '730998349', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '342', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:33:26', '2025-02-14 22:33:26', 1),
-(122, NULL, '924151842', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '510', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:37:10', '2025-02-14 22:37:10', 1),
-(123, NULL, '786028449', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '440', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:41:04', '2025-02-14 22:41:04', 1),
-(124, NULL, '247149666', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '414', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:44:54', '2025-02-14 22:44:54', 1),
-(125, NULL, '260616469', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '414', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:55:02', '2025-02-14 22:55:02', 1),
-(126, NULL, '222550618', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '470', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:55:47', '2025-02-14 22:55:47', 1),
-(127, NULL, '311026465', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '470', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 22:56:27', '2025-02-14 22:56:27', 1),
-(128, NULL, '979551898', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '411', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 23:01:43', '2025-02-14 23:01:43', 1),
-(129, NULL, '831616849', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '342', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 23:03:48', '2025-02-14 23:03:49', 1),
-(130, NULL, '285270069', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '412', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-14 23:06:09', '2025-02-14 23:06:09', 1),
-(131, NULL, '980354086', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '470', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 14:27:45', '2025-02-15 14:27:46', 1),
-(132, NULL, '969258682', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '414', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 14:31:48', '2025-02-15 14:31:48', 1),
-(133, NULL, '132085429', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '784', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 17:56:05', '2025-02-15 17:56:05', 1),
-(134, NULL, '920403260', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '784', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 18:04:11', '2025-02-15 18:04:11', 1),
-(135, NULL, '198031471', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '784', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 18:13:10', '2025-02-15 18:13:11', 1),
-(136, NULL, '422142327', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '682', 'Післяплата', 0, 0, 1, NULL, '2025-02-15 18:15:07', '2025-02-15 18:15:07', 1),
-(137, NULL, '394340933', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '400', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 18:17:16', '2025-02-15 18:17:17', 1),
-(138, NULL, '689908247', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '414', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 18:33:00', '2025-02-15 18:33:01', 1),
-(139, NULL, '223014574', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '854', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 18:41:38', '2025-02-15 18:41:38', 1),
-(140, NULL, '452087795', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '854', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 18:43:20', '2025-02-15 18:43:20', 1),
-(141, NULL, '988134487', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '854', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 18:45:51', '2025-02-15 18:45:52', 1),
-(142, NULL, '112577876', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '784', 'Післяплата', 0, 0, 1, NULL, '2025-02-15 19:00:15', '2025-02-15 19:00:15', 1),
-(143, NULL, '660891282', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '510', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 19:04:27', '2025-02-15 19:04:27', 1),
-(144, NULL, '298866226', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '510', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 19:06:53', '2025-02-15 19:06:53', 1),
-(145, NULL, '683614444', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '344', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 19:15:16', '2025-02-15 19:15:17', 1),
-(146, NULL, '920327655', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '416', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 20:38:49', '2025-02-15 20:38:49', 1),
-(147, NULL, '750357021', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '341', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 21:49:21', '2025-02-15 21:49:21', 1),
-(148, NULL, '850694161', 'Mary', 'Duffy', 'Underwood Bryant Plc', '+1 (218) 594-8837', 'capykume@mailinator.com', 'Ullamco non voluptat', 'Eum aute adipisicing', 6, '70', '', '0', '414', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 21:54:24', '2025-02-15 21:54:25', 110),
-(149, NULL, '152289471', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '854', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 22:18:12', '2025-02-15 22:18:12', 1),
-(150, NULL, '730011879', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 6, '70', '', '0', '414', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-15 22:19:43', '2025-02-15 22:19:43', 1),
-(151, NULL, '578350408', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '784', 'Платіжна картка', 1, 0, 1, NULL, '2025-02-15 22:24:33', '2025-02-15 23:13:51', 1),
-(152, NULL, '766032692', 'Kiayada', 'Guerra', 'Davenport Blackwell Plc', '+1 (118) 237-9318', 'hysuk@mailinator.com', 'Impedit nobis ullam', 'Obcaecati placeat v', 5, '0', '', '0', '344', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-18 21:20:37', '2025-02-18 21:20:37', NULL),
-(153, NULL, '878210089', 'Fallon', 'Mooney', 'Hopkins and Gould Co', '+1 (903) 483-1983', 'lezok@mailinator.com', 'Voluptatum aspernatu', 'In laboriosam elit', 6, '70', '', '0', '854', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-18 21:27:45', '2025-02-18 21:27:46', NULL),
-(154, NULL, '829152205', 'Morgan', 'Blackburn', 'Morse and Harrell Trading', '+1 (952) 436-1277', 'nibikugoc@mailinator.com', 'Provident eveniet', 'Iusto sequi molestia', 5, '0', '', '0', '784', 'Платіжна картка', 0, 0, 1, NULL, '2025-02-18 21:35:13', '2025-02-18 21:35:14', NULL),
-(155, NULL, '618180380', 'Adam', 'Blevins', 'Decker Daniel Traders', '+1 (202) 779-9969', 'cebodo@mailinator.com', 'Harum eaque culpa ev', 'Quia ullamco quia no', 6, '70', '', '0', '1734', 'Платіжна картка', 1, 0, 1, NULL, '2025-02-18 21:41:53', '2025-02-19 01:14:14', 111),
-(156, NULL, '231542616', 'Gail', 'Richards', 'Watson and Ferrell Inc', '+1 (431) 358-2447', 'jyqibynyto@mailinator.com', 'Quia proident qui c', 'Omnis et assumenda t', 6, '70', '', '0', '910', 'Платіжна картка', 3, 0, 1, NULL, '2025-02-18 21:46:14', '2025-02-19 01:12:52', 112),
-(157, NULL, '796761245', 'Zachary', 'Dyer', 'Harmon Wooten Co', '+1 (397) 783-7176', 'fydyfyqahy@mailinator.com', 'Voluptas consequat', 'Sint aperiam quo num', 5, '0', '', '0', '1730', 'Платіжна картка', 0, 0, 1, NULL, '2026-02-28 10:10:17', '2026-02-28 10:10:17', NULL),
-(158, NULL, '488697933', 'Ian', 'Sawyer', 'Ross Briggs Associates', '+1 (156) 951-8895', 'wydy@mailinator.com', 'Architecto velit vel', 'Libero reprehenderit', 6, '70', '', '0', '470', 'Післяплата', 0, 0, 1, NULL, '2026-02-28 10:12:05', '2026-02-28 10:12:06', 114),
-(159, NULL, '428388901', 'Blake', 'Richard', 'Stevens and Hanson Associates', '+1 (908) 313-8088', 'mivejugad@mailinator.com', 'Ad exercitation quis', 'Delectus eligendi m', 5, '0', '', '0', '400', 'Платіжна картка', 0, 0, 1, NULL, '2026-02-28 10:13:54', '2026-02-28 10:13:54', 115),
-(160, NULL, '673102942', 'Dallas', 'Brugie', 'Tran Torres Trading', '+1 (385) 764-7914', 'e-mail@fts.ua', 'Praesentium in nisi', '', 5, '0', '', '0', '684', 'Післяплата', 0, 0, 1, NULL, '2026-02-28 10:22:05', '2026-02-28 10:22:05', 1);
+INSERT INTO `orders` (`id`, `order_number`, `first_name`, `last_name`, `company_name`, `phone`, `email`, `delivery_address`, `note`, `shipping_id`, `shipping_amount`, `discount_code`, `discount_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`, `user_id`) VALUES
+(264, '769672039', 'Ruth', 'Hopkins', 'Booker Flowers Associates', '+1 (757) 193-1601', 'wuloty@mailinator.com', 'Fugiat sint repudian', 'Culpa consequat Ni', 6, '70', '', '0', '416', 'Післяплата', 3, 0, 1, NULL, '2026-03-05 08:23:11', '2026-03-05 08:36:18', 205);
 
 -- --------------------------------------------------------
 
@@ -549,110 +424,7 @@ CREATE TABLE `orders_item` (
 --
 
 INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `quantity`, `price`, `color_name`, `size_name`, `size_amount`, `total_price`, `created_at`, `updated_at`) VALUES
-(65, 66, 3, 2, '40', 'Cyan', NULL, '0', '40', '2024-11-15 13:52:14', '2024-11-15 13:52:14'),
-(66, 67, 5, 3, '610.5', 'Pantone 116C', 'LM', '305', '610.5', '2024-11-15 14:03:35', '2024-11-15 14:03:35'),
-(67, 68, 5, 3, '610.5', 'Pantone 116C', 'LM', '305', '610.5', '2024-11-15 14:04:24', '2024-11-15 14:04:24'),
-(68, 69, 5, 1, '610.5', 'Black', 'LM', '305', '610.5', '2024-11-15 14:07:37', '2024-11-15 14:07:37'),
-(69, 70, 5, 3, '610.5', 'Pantone 116C', 'LM', '305', '610.5', '2024-11-15 14:14:40', '2024-11-15 14:14:40'),
-(70, 71, 7, 3, '91', 'Cyan', '1.4', '46', '91', '2024-11-15 14:34:57', '2024-11-15 14:34:57'),
-(71, 71, 1, 5, '34', 'Pantone 116C', NULL, '0', '34', '2024-11-15 14:34:57', '2024-11-15 14:34:57'),
-(72, 71, 6, 1, '1131', 'Червоний', '1.8', '337', '1131', '2024-11-15 14:34:57', '2024-11-15 14:34:57'),
-(73, 72, 3, 2, '40', 'Cyan', NULL, '0', '40', '2024-11-18 10:28:24', '2024-11-18 10:28:24'),
-(74, 73, 3, 1, '40', 'Cyan', NULL, '0', '40', '2024-11-19 07:26:06', '2024-11-19 07:26:06'),
-(75, 74, 7, 1, '91', 'Cyan', '1.4', '46', '91', '2024-11-19 10:20:15', '2024-11-19 10:20:15'),
-(76, 75, 7, 2, '91', 'Cyan', '1.4', '46', '91', '2024-11-19 10:28:29', '2024-11-19 10:28:29'),
-(77, 76, 7, 2, '91', 'Cyan', '1.4', '46', '91', '2024-11-19 10:29:46', '2024-11-19 10:29:46'),
-(78, 77, 7, 2, '91', 'Cyan', '1.4', '46', '91', '2024-11-19 10:42:43', '2024-11-19 10:42:43'),
-(79, 78, 7, 1, '91', 'Pantone 116C', '1.4', '46', '91', '2024-11-19 12:44:19', '2024-11-19 12:44:19'),
-(80, 79, 7, 1, '91', 'Pantone 116C', '1.4', '46', '91', '2024-11-19 12:49:18', '2024-11-19 12:49:18'),
-(81, 81, 7, 1, '91', 'Cyan', '1.4', '46', '91', '2024-11-19 12:50:16', '2024-11-19 12:50:16'),
-(82, 82, 7, 1, '91', 'Cyan', '1.4', '46', '91', '2024-11-19 12:52:16', '2024-11-19 12:52:16'),
-(83, 84, 7, 2, '91', 'Cyan', '1.4', '46', '91', '2024-11-19 13:02:48', '2024-11-19 13:02:48'),
-(84, 84, 5, 1, '610.5', 'Black', 'LM', '305', '610.5', '2024-11-19 13:02:48', '2024-11-19 13:02:48'),
-(85, 84, 4, 1, '264', 'Cyan', '1.7', '56', '264', '2024-11-19 13:02:48', '2024-11-19 13:02:48'),
-(86, 85, 7, 2, '91', 'Cyan', '1.4', '46', '91', '2024-11-19 14:27:18', '2024-11-19 14:27:18'),
-(87, 85, 5, 1, '610.5', 'Black', 'LM', '305', '610.5', '2024-11-19 14:27:18', '2024-11-19 14:27:18'),
-(88, 85, 4, 1, '264', 'Cyan', '1.7', '56', '264', '2024-11-19 14:27:18', '2024-11-19 14:27:18'),
-(89, 86, 5, 2, '610.5', 'Cyan', 'LM', '305', '610.5', '2024-11-28 13:34:43', '2024-11-28 13:34:43'),
-(90, 87, 7, 1, '45', 'Cyan', NULL, '0', '45', '2024-12-11 08:45:52', '2024-12-11 08:45:52'),
-(91, 88, 3, 1, '40', 'Cyan', NULL, '0', '40', '2024-12-12 12:01:52', '2024-12-12 12:01:52'),
-(92, 89, 3, 1, '40', 'Cyan', NULL, '0', '40', '2024-12-12 12:02:18', '2024-12-12 12:02:18'),
-(93, 90, 3, 1, '40', 'Cyan', NULL, '0', '40', '2024-12-12 12:03:39', '2024-12-12 12:03:39'),
-(94, 91, 7, 1, '91', 'Cyan', '1.4', '46', '91', '2024-12-12 13:50:11', '2024-12-12 13:50:11'),
-(95, 92, 6, 1, '1131', 'Червоний', '1.8', '337', '1131', '2024-12-25 11:57:15', '2024-12-25 11:57:15'),
-(96, 93, 5, 2, '610.5', 'Black', 'LM', '305', '1221', '2025-01-05 18:41:38', '2025-01-05 18:41:38'),
-(97, 93, 4, 1, '273', 'Cyan', '1.5', '65', '273', '2025-01-05 18:41:38', '2025-01-05 18:41:38'),
-(98, 94, 7, 2, '91', 'Pantone 116C', '1.4', '46', '182', '2025-01-05 18:45:11', '2025-01-05 18:45:11'),
-(99, 95, 7, 3, '91', 'Cyan', '1.4', '46', '273', '2025-01-05 18:53:06', '2025-01-05 18:53:06'),
-(100, 96, 7, 2, '45', 'Cyan', NULL, '0', '90', '2025-01-05 19:04:58', '2025-01-05 19:04:58'),
-(101, 97, 5, 2, '305.5', 'Black', NULL, '0', '611', '2025-01-05 19:42:54', '2025-01-05 19:42:54'),
-(102, 98, 5, 2, '305.5', 'Pantone 116C', NULL, '0', '611', '2025-01-05 19:49:32', '2025-01-05 19:49:32'),
-(103, 98, 4, 1, '208', 'Cyan', NULL, '0', '208', '2025-01-05 19:49:32', '2025-01-05 19:49:32'),
-(104, 98, 1, 3, '34', 'Pantone 116C', NULL, '0', '102', '2025-01-05 19:49:32', '2025-01-05 19:49:32'),
-(105, 99, 5, 1, '305.5', 'Червоний', NULL, '0', '305.5', '2025-01-05 22:26:00', '2025-01-05 22:26:00'),
-(106, 100, 6, 1, '794', 'Червоний', NULL, '0', '794', '2025-01-05 22:27:33', '2025-01-05 22:27:33'),
-(107, 101, 7, 3, '65', 'Black', 'XL', '20', '195', '2025-01-05 23:01:34', '2025-01-05 23:01:34'),
-(108, 102, 7, 5, '65', 'Cyan', 'XL', '20', '325', '2025-01-06 00:59:19', '2025-01-06 00:59:19'),
-(109, 104, 9, 1, '400', NULL, NULL, '0', '400', '2025-02-03 23:59:57', '2025-02-03 23:59:57'),
-(110, 105, 4, 1, '342', NULL, NULL, '0', '342', '2025-02-04 00:04:31', '2025-02-04 00:04:31'),
-(111, 106, 9, 1, '400', NULL, NULL, '0', '400', '2025-02-07 22:01:59', '2025-02-07 22:01:59'),
-(112, 106, 3, 1, '341', NULL, NULL, '0', '341', '2025-02-07 22:01:59', '2025-02-07 22:01:59'),
-(113, 107, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-07 22:07:04', '2025-02-07 22:07:04'),
-(114, 108, 9, 1, '400', NULL, NULL, '0', '400', '2025-02-11 23:16:09', '2025-02-11 23:16:09'),
-(115, 109, 7, 1, '365', 'Pantone 116C', 'XL', '20', '365', '2025-02-13 22:13:46', '2025-02-13 22:13:46'),
-(116, 110, 1, 1, '440', 'Червоний', '100cm', '100', '440', '2025-02-14 00:58:43', '2025-02-14 00:58:43'),
-(117, 111, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-14 01:00:36', '2025-02-14 01:00:36'),
-(118, 112, 3, 1, '341', NULL, NULL, '0', '341', '2025-02-14 01:02:15', '2025-02-14 01:02:15'),
-(119, 113, 9, 1, '400', NULL, NULL, '0', '400', '2025-02-14 17:52:05', '2025-02-14 17:52:05'),
-(120, 114, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-14 21:25:58', '2025-02-14 21:25:58'),
-(121, 115, 3, 1, '341', NULL, NULL, '0', '341', '2025-02-14 21:38:07', '2025-02-14 21:38:07'),
-(122, 116, 1, 1, '440', 'Червоний', '100cm', '100', '440', '2025-02-14 21:41:26', '2025-02-14 21:41:26'),
-(123, 117, 3, 1, '341', NULL, NULL, '0', '341', '2025-02-14 21:43:25', '2025-02-14 21:43:25'),
-(124, 118, 3, 1, '341', NULL, NULL, '0', '341', '2025-02-14 21:44:58', '2025-02-14 21:44:58'),
-(125, 119, 4, 1, '342', NULL, NULL, '0', '342', '2025-02-14 22:19:03', '2025-02-14 22:19:03'),
-(126, 120, 4, 1, '342', NULL, NULL, '0', '342', '2025-02-14 22:23:34', '2025-02-14 22:23:34'),
-(127, 121, 4, 1, '342', NULL, NULL, '0', '342', '2025-02-14 22:33:26', '2025-02-14 22:33:26'),
-(128, 122, 1, 1, '440', 'Червоний', '100cm', '100', '440', '2025-02-14 22:37:10', '2025-02-14 22:37:10'),
-(129, 123, 1, 1, '440', 'Червоний', '100cm', '100', '440', '2025-02-14 22:41:04', '2025-02-14 22:41:04'),
-(130, 124, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-14 22:44:54', '2025-02-14 22:44:54'),
-(131, 125, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-14 22:55:02', '2025-02-14 22:55:02'),
-(132, 126, 9, 1, '400', NULL, NULL, '0', '400', '2025-02-14 22:55:47', '2025-02-14 22:55:47'),
-(133, 127, 9, 1, '400', NULL, NULL, '0', '400', '2025-02-14 22:56:27', '2025-02-14 22:56:27'),
-(134, 128, 3, 1, '341', NULL, NULL, '0', '341', '2025-02-14 23:01:43', '2025-02-14 23:01:43'),
-(135, 129, 4, 1, '342', NULL, NULL, '0', '342', '2025-02-14 23:03:48', '2025-02-14 23:03:48'),
-(136, 130, 4, 1, '342', NULL, NULL, '0', '342', '2025-02-14 23:06:09', '2025-02-14 23:06:09'),
-(137, 131, 9, 1, '400', NULL, NULL, '0', '400', '2025-02-15 14:27:45', '2025-02-15 14:27:45'),
-(138, 132, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-15 14:31:48', '2025-02-15 14:31:48'),
-(139, 133, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 17:56:05', '2025-02-15 17:56:05'),
-(140, 134, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 18:04:11', '2025-02-15 18:04:11'),
-(141, 135, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 18:13:10', '2025-02-15 18:13:10'),
-(142, 136, 3, 2, '341', NULL, NULL, '0', '682', '2025-02-15 18:15:07', '2025-02-15 18:15:07'),
-(143, 137, 9, 1, '400', NULL, NULL, '0', '400', '2025-02-15 18:17:16', '2025-02-15 18:17:16'),
-(144, 138, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-15 18:33:00', '2025-02-15 18:33:00'),
-(145, 139, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 18:41:38', '2025-02-15 18:41:38'),
-(146, 140, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 18:43:20', '2025-02-15 18:43:20'),
-(147, 141, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 18:45:51', '2025-02-15 18:45:51'),
-(148, 142, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 19:00:15', '2025-02-15 19:00:15'),
-(149, 143, 1, 1, '440', 'Червоний', '100cm', '100', '440', '2025-02-15 19:04:27', '2025-02-15 19:04:27'),
-(150, 144, 1, 1, '440', 'Червоний', '100cm', '100', '440', '2025-02-15 19:06:53', '2025-02-15 19:06:53'),
-(151, 145, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-15 19:15:16', '2025-02-15 19:15:16'),
-(152, 146, 8, 1, '346', 'Червоний', NULL, '0', '346', '2025-02-15 20:38:49', '2025-02-15 20:38:49'),
-(153, 147, 3, 1, '341', NULL, NULL, '0', '341', '2025-02-15 21:49:21', '2025-02-15 21:49:21'),
-(154, 148, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-15 21:54:24', '2025-02-15 21:54:24'),
-(155, 149, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 22:18:12', '2025-02-15 22:18:12'),
-(156, 150, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-15 22:19:43', '2025-02-15 22:19:43'),
-(157, 151, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-15 22:24:33', '2025-02-15 22:24:33'),
-(158, 152, 6, 1, '344', NULL, NULL, '0', '344', '2025-02-18 21:20:37', '2025-02-18 21:20:37'),
-(159, 153, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-18 21:27:45', '2025-02-18 21:27:45'),
-(160, 154, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-18 21:35:13', '2025-02-18 21:35:13'),
-(161, 155, 4, 1, '784', 'Cyan', 'XXl', '442', '784', '2025-02-18 21:41:53', '2025-02-18 21:41:53'),
-(162, 155, 1, 2, '440', 'Червоний', '100cm', '100', '880', '2025-02-18 21:41:53', '2025-02-18 21:41:53'),
-(163, 156, 9, 1, '400', 'Pantone 116C', NULL, '0', '400', '2025-02-18 21:46:14', '2025-02-18 21:46:14'),
-(164, 156, 1, 1, '440', 'Червоний', '100cm', '100', '440', '2025-02-18 21:46:14', '2025-02-18 21:46:14'),
-(165, 157, 8, 5, '346', 'Червоний', NULL, '0', '1730', '2026-02-28 10:10:17', '2026-02-28 10:10:17'),
-(166, 158, 9, 1, '400', 'Pantone 116C', NULL, '0', '400', '2026-02-28 10:12:05', '2026-02-28 10:12:05'),
-(167, 159, 9, 1, '400', 'Pantone 116C', NULL, '0', '400', '2026-02-28 10:13:54', '2026-02-28 10:13:54'),
-(168, 160, 4, 2, '342', 'Pantone 116C', NULL, '0', '684', '2026-02-28 10:22:05', '2026-02-28 10:22:05');
+(270, 264, 8, 1, '346', 'Червоний', NULL, '0', '346', '2026-03-05 08:23:11', '2026-03-05 08:23:11');
 
 -- --------------------------------------------------------
 
@@ -874,14 +646,6 @@ CREATE TABLE `product_review` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Дамп даних таблиці `product_review`
---
-
-INSERT INTO `product_review` (`id`, `product_id`, `order_id`, `user_id`, `rating`, `review`, `is_delete`, `created_at`, `updated_at`) VALUES
-(4, 3, 66, 1, 1, 'Lorem Ipsum є псевдо- латинський текст використовується у веб - дизайні, типографіка, верстка, і друку замість англійської підкреслити елементи дизайну над змістом. Це також називається заповнювач ( або наповнювач) текст. Це зручний інструмент для макетів. Це допомагає намітити візуальні елементи в документ або презентацію, наприклад, друкарня, шрифт, або макет. Lorem Ipsum в основному частиною латинського тексту за класичною автор і філософа Цицерона. Це слова і букви були змінені додаванням або видаленням, так навмисно роблять його зміст безглуздо, це не є справжньою, правильно чи зрозумілою Латинської більше. У той час як Lorem Ipsum все ще нагадує класичну латину, він насправді не має ніякого значення.', 0, '2024-12-27 20:37:21', '2024-12-29 02:06:28'),
-(8, 3, 88, 1, 5, 'Cool product real!', 0, '2024-12-29 18:37:59', '2024-12-29 18:37:59');
-
 -- --------------------------------------------------------
 
 --
@@ -919,13 +683,6 @@ CREATE TABLE `product_wishlist` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп даних таблиці `product_wishlist`
---
-
-INSERT INTO `product_wishlist` (`id`, `user_id`, `product_id`, `created_at`, `updated_at`) VALUES
-(53, 1, NULL, '2024-12-26 00:39:54', '2024-12-26 00:39:54');
 
 -- --------------------------------------------------------
 
@@ -1004,7 +761,7 @@ CREATE TABLE `smtp` (
 --
 
 INSERT INTO `smtp` (`id`, `name`, `mail_mailer`, `mail_host`, `mail_port`, `mail_username`, `mail_password`, `mail_encryption`, `mail_from_address`, `created_at`, `updated_at`) VALUES
-(1, 'site1.virtua', 'smtp', 'sandbox.smtp.mailtrap.io', '2525', '6c74a169272921', '1bfa3ca6f9d7e4', 'tls', 'from@example.com', NULL, '2025-02-15 19:14:46');
+(1, 'shop.test.ua', 'smtp', 'smtp.gmail.com', '587', 'kami74669@gmail.com', 'ueudbnapzlbwvvtz', 'tls', 'rostislavgritsyk@gmail.com', NULL, '2026-03-03 20:42:35');
 
 -- --------------------------------------------------------
 
@@ -1075,7 +832,7 @@ CREATE TABLE `system_setting` (
 --
 
 INSERT INTO `system_setting` (`id`, `website_name`, `footer_description`, `address`, `phone`, `phone_two`, `submit_email`, `email`, `email_two`, `working_hours`, `facebook_link`, `instagram_link`, `youtube_link`, `tiktok_link`, `logo`, `favicon`, `footer_payment_icon`, `created_at`, `updated_at`) VALUES
-(1, 'Test2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,', 'вул. Українська, 2П /1, Нижній Вербіж, Івано-Франківська область, 78218', '+38 0123 456 790', '+38 0123 456 791', 'example1@gmail.com', 'example@gmail.com', 'example2@gmail.com', 'Пн-Пт: 8.00-17.00 Суб:8.00-15.00', 'https://www.facebook.com/1/', 'https://www.instagram.com/', 'https://www.youtube.com', 'https://www.tiktok.com', 'aen71apwsc.png', '9aqzdgq61a.ico', 'snig948neb.png', NULL, '2025-02-14 02:52:08.00');
+(1, 'shop.test.ua/', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,', 'вул. Українська, 2П /1, Нижній Вербіж, Івано-Франківська область, 78218', '+38 0123 456 790', '+38 0123 456 791', 'example1@gmail.com', 'example@gmail.com', 'example2@gmail.com', 'Пн-Пт: 8.00-17.00 Суб:8.00-15.00', 'https://www.facebook.com/1/', 'https://www.instagram.com/', 'https://www.youtube.com', 'https://www.tiktok.com', 'aen71apwsc.png', '9aqzdgq61a.ico', 'snig948neb.png', NULL, '2026-02-28 14:42:29.00');
 
 -- --------------------------------------------------------
 
@@ -1088,6 +845,7 @@ CREATE TABLE `users` (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verification_token` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1106,36 +864,9 @@ CREATE TABLE `users` (
 -- Дамп даних таблиці `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `email_verified_at`, `password`, `remember_token`, `company_name`, `phone`, `delivery_address`, `is_super_admin`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Dallas', 'Brugie', 'e-mail@fts.ua', '2024-08-30 15:36:34', '$2y$12$Ehv8tbud.Wfoq1V7lXpN2eghhacnXv/pbqrMdkkj.poLqb11yupWK', 'pJSZnKeaU2TyOhgpQyYpwR1Lp0lfVj628Dwkp7ZbCXw3fAzwQRTTr0p6dXWU', 'Tran Torres Trading', '+1 (385) 764-7914', 'Praesentium in nisi', 1, 1, 0, 0, '2024-08-30 15:38:06', '2025-01-26 17:31:45'),
-(88, 'Oliver', NULL, 'jafubavehi@mailinator.com', '2025-02-03 23:24:44', '$2a$12$mYqVjEHKnEfHMS31QX6hIupIQx488DtRVJXE6Fo80N/H1l2Y/VZp6', NULL, NULL, NULL, NULL, 0, 1, 0, 0, '2024-11-15 12:03:35', '2024-12-11 10:13:17'),
-(89, 'Oliver', NULL, 'bavehi@mailinator.com', NULL, '$2y$12$2X3pFH2dseWgJvWuuO/XguUACmJ2FwnGG3.wTzclWc1LS1fycugea', NULL, NULL, NULL, NULL, 0, 1, 0, 1, '2024-11-15 12:04:24', '2025-01-26 20:41:34'),
-(90, 'Ramona', NULL, 'zukyc@mailinator.com', NULL, '$2y$12$S7VJVuOXw02Os22aEcRgA.bAxBnmYjvwgsxB1XWWp2ZWYOun8xQc2', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-11-15 12:07:37', '2024-11-15 12:07:37'),
-(91, 'Vincent', NULL, 'pytubocuv@mailinator.com', NULL, '$2y$12$JieHAPl/aFvDKOJu/bfdkeVmvtYRxBiAnrzNYvqXI8dFOREWoiWnG', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-11-15 12:14:40', '2024-11-15 12:14:40'),
-(92, 'Nero', NULL, 'roqono@mailinator.com', NULL, '$2y$12$hmFefdmpPm0I/B3uipqT9.82vsiDLvq98Ackpmi2jVj8grg18FIzy', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-11-15 12:34:57', '2024-11-15 12:34:57'),
-(93, 'Kaseem', NULL, 'cosi@mailinator.com', NULL, '$2y$12$y4AKAHAUxs0reRjVPvGt7uT5l4HO6qFdGNdvFf0WCwv4qwHqsY.pu', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-11-18 08:28:24', '2024-11-18 08:28:24'),
-(94, 'Grant', NULL, 'syrovojyf@mailinator.com', NULL, '$2y$12$DLSuut0Pueb58py7/DXcmO2Nd6MjizqkLW2hCIqpPBOxPylpRQtPe', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-11-19 05:26:06', '2024-11-19 05:26:06'),
-(95, 'Isaac', NULL, 'vacose@mailinator.com', NULL, '$2y$12$zaJfK5Ct5S1swRVuFlYVb.xptt6X4g8AH4QuRu4UxS0MeQ3VezLei', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-11-19 08:28:29', '2024-11-19 08:28:29'),
-(96, 'Isaac', NULL, 'vae@mailinator.com', NULL, '$2y$12$T6V06A4Bt7.Zhe.jt2pRy.ltXWZ0hAQlk/KkbySL.lHipb6lZETQm', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-11-19 08:29:46', '2024-11-19 08:29:46'),
-(97, 'Barrett', NULL, 'rorozene@mailinator.com', NULL, '$2y$12$Wzb69gu3/M9.3ZIRuq9Xhuz7gRwzsNFJtNzY1CxZNZtyyR8gN8PMu', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-11-28 11:34:43', '2024-11-28 11:34:43'),
-(98, 'Ria', NULL, 'gewaluguja@mailinator.com', NULL, '$2y$12$wg9WKeOeRpTt6dJIowurn.8lzx.gsfGunJ9crt3iWUjvQ1Yxntiou', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-12-12 11:50:11', '2024-12-12 11:50:11'),
-(99, 'May Vaughn', NULL, 'qeqi@mailinator.com', '2024-12-25 09:51:16', '$2y$12$d.NSJC4ogjGYRqN8rNyzVeVvX4bpnHYfWKy6Q5U8BGvJQivtcec8K', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-12-25 09:51:01', '2024-12-25 09:51:16'),
-(100, 'Medge Frost', NULL, 'nasixanipu@mailinator.com', '2024-12-25 09:53:03', '$2y$12$TGJYtq1BFsQwdHxpcc7/SOkSOomAjlGPZ6Fnq.enetPj7v1Wo5I.K', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2024-12-25 09:52:55', '2024-12-25 09:53:03'),
-(101, 'Stuart Wilkins', NULL, 'tuqybiwinu@mailinator.com', '2025-01-26 20:43:35', '$2y$12$jncoVdY8rVdCnWi7aNcI6.HmZ/FhW5Ov8EYrnZkzUCn38FjGyVstC', 'YuN2FpKiTWeouKL2RUFh0Zw2ResrfGwdD2uLjxLpsr7cNCdSVCrVFhbV6xIO', NULL, NULL, NULL, 0, 1, 0, 0, '2025-01-26 20:42:37', '2025-01-26 20:43:35'),
-(102, 'Caleb Frank', NULL, 'jutyrijapi@mailinator.com', NULL, '$2y$12$SqkAp2Mm8KdJJSvBvxm2Q.f0IHYpGWsC9Gmn7RWPKgFwEXETm2786', NULL, NULL, NULL, NULL, 0, 1, 0, 0, '2025-01-26 21:02:13', '2025-01-26 21:02:13'),
-(103, 'Roanna Rodriguez', NULL, 'xixazyweme@mailinator.com', '2025-02-05 17:46:48', '$2y$12$RZnlXa4Ra4/VLNMGCcGa8uW9Q.rqSrBKif1xT5dMQbk9hpQv.yRTi', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-05 17:44:13', '2025-02-05 17:46:48'),
-(104, 'Camille Welch', NULL, 'revatavy@mailinator.com', '2025-02-05 18:01:03', '$2y$12$AfUs82tWJBX8qQ1ehP5u1eghGdPwsUhsuqloqFrXVyiq8feB6JmYW', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-05 17:59:07', '2025-02-05 18:01:03'),
-(105, 'Athena Bean', NULL, 'cobawy@mailinator.com', '2025-02-05 18:01:08', '$2y$12$ICRFvcs/rjfOWh9LBLCKvu039dSwR/XoG/GoL/3INNxc5/0Ug2RqW', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-05 17:59:40', '2025-02-05 18:01:08'),
-(106, 'Harlan Frazier', NULL, 'rumu@mailinator.com', NULL, '$2y$12$IBbi0MgodWOwnGFwjvIJOOo.3DnSD5oROWoSoKQh9Q7LhBflB8YGa', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-07 22:03:37', '2025-02-07 22:03:37'),
-(107, 'Dylan Hayden', NULL, 'xarerypoc@mailinator.com', NULL, '$2y$12$jZL4.2bnbtDnoMZnrfcSvee5LYXeihEp8OH7INcdy6cnpg66IcRga', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-07 22:06:33', '2025-02-07 22:06:33'),
-(108, 'Ignacia Craig', NULL, 'soxobyxuh@mailinator.com', NULL, '$2y$12$ns69Rt5/1UYXLH.x78lU0.rcHGbDbSENslB.hjfBr/P410A/zGziG', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-14 00:17:16', '2025-02-14 00:17:16'),
-(109, 'Catherine', 'Atkins', 'vibagot@mailinator.com', '2025-02-14 00:25:54', '$2y$12$eBKDrzV4k9bO92ZbTo6ZVOBTfQLL3IM0qfY1IqYxctIeWjQVeggym', 'wH1mDiI2ofZvdfo8Ko29TLniHwEF8V', 'Jarvis and Dejesus Associates', '+1 (524) 105-4104', 'Consectetur sed err', 0, 0, 0, 0, '2025-02-14 00:21:49', '2025-02-14 00:27:21'),
-(110, 'Mary', NULL, 'capykume@mailinator.com', NULL, '$2y$12$JRoDukp/3IvVycMpJY9Rqexnj5rxuQi8c5IYcq/fUTZv8KPbM1fqW', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-15 19:54:24', '2025-02-15 19:54:24'),
-(111, 'Adam', NULL, 'cebodo@mailinator.com', NULL, '$2y$12$AynIJ78dAL.2AwfYAjPvmeoH2uS1R7pEufEx9qJS.P8ZHauUv.kGu', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-18 19:41:53', '2025-02-18 19:41:53'),
-(112, 'Gail', NULL, 'jyqibynyto@mailinator.com', NULL, '$2y$12$YLAEWAMewC0EKjMSauGMcObfqINHanQ.w.rBen4bajlX/WZnbdHk2', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-18 19:46:14', '2025-02-18 19:46:14'),
-(113, 'test', NULL, 'test@test.eu', NULL, '$2y$12$lwizpZxK/oQlfWmpw1Ks8uK.n7XW03uJz0kpOo86DKfn2Jmky39Ru', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2025-02-18 23:22:53', '2025-02-18 23:22:53'),
-(114, 'Ian', NULL, 'wydy@mailinator.com', NULL, '$2y$12$9B4kZVDMAU9zShae0DClV.A5/P7zVF92CBvzSi6/v7iirslJukT2.', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2026-02-28 08:12:05', '2026-02-28 08:12:05'),
-(115, 'Blake', NULL, 'mivejugad@mailinator.com', NULL, '$2y$12$7Ta/ec0m29W4IudMUR6wg.IC3l.5vloif7PeH.yehq9VRVgcrV6LC', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2026-02-28 08:13:54', '2026-02-28 08:13:54');
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `email_verification_token`, `email_verified_at`, `password`, `remember_token`, `company_name`, `phone`, `delivery_address`, `is_super_admin`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
+(1, 'Dallas', 'Brugie', 'e-mail@fts.ua', NULL, '2024-08-30 15:36:34', '$2y$12$Ehv8tbud.Wfoq1V7lXpN2eghhacnXv/pbqrMdkkj.poLqb11yupWK', 'ZICNtP0It1SJ0naExWU5MTjMzIGwlScOLg7j6zCyxecExVFm2uJlFxaD1w8b', 'Tran Torres Trading', '+1 (385) 764-7914', 'Praesentium in nisi', 1, 1, 0, 0, '2024-08-30 15:38:06', '2025-01-26 17:31:45'),
+(205, 'Ruth Hopkins', NULL, 'jajaxozo@mailinator.com', NULL, '2026-03-04 16:52:50', '$2y$12$Sf4yAhAc2qn46tdSzGRnsOl2nSJkGmPjLBWCJZ7QJTa10cbwHbARC', NULL, NULL, NULL, NULL, 0, 0, 0, 0, '2026-03-04 16:52:27', '2026-03-04 16:52:27');
 
 --
 -- Індекси збережених таблиць
@@ -1207,6 +938,13 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `home_setting`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jobs_queue_index` (`queue`);
 
 --
 -- Індекси таблиці `migrations`
@@ -1403,28 +1141,34 @@ ALTER TABLE `home_setting`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT для таблиці `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблиці `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблиці `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
 
 --
 -- AUTO_INCREMENT для таблиці `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
 
 --
 -- AUTO_INCREMENT для таблиці `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=271;
 
 --
 -- AUTO_INCREMENT для таблиці `page`
@@ -1478,7 +1222,7 @@ ALTER TABLE `product_size`
 -- AUTO_INCREMENT для таблиці `product_wishlist`
 --
 ALTER TABLE `product_wishlist`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT для таблиці `shipping_charge`
@@ -1514,7 +1258,7 @@ ALTER TABLE `system_setting`
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
