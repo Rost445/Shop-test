@@ -112,7 +112,7 @@
                                         </div>
                                     @endif
                                     <div class="details-filter-row details-row-size">
-                                        <label for="qty">Qty:</label>
+                                        <label for="qty">Кількість:</label>
                                         <div class="product-details-quantity">
                                             <input type="number" id="qty" class="form-control" value="1"
                                                 min="1" max="100" name="qty" required step="1"
