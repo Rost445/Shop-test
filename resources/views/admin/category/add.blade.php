@@ -55,20 +55,23 @@
                                         </select>
                                     </div>
                                     <hr>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Зображення</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="image_name" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Виберіть
-                                                    файл</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Завантажити</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                  <div class="form-group">
+<label for="exampleInputFile">Зображення</label>
+
+<div class="input-group">
+<div class="custom-file">
+<input type="file" name="image_name" class="custom-file-input" id="imageInput">
+<label class="custom-file-label">Виберіть файл</label>
+</div>
+<div class="input-group-append">
+<span class="input-group-text">Завантажити</span>
+</div>
+</div>
+
+<br>
+
+<img id="previewImage" src="#" style="max-height:150px; display:none; border-radius:5px;">
+</div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Назва кнопки</label>
                                         <input type="text" name="button_name" class="form-control">
@@ -76,12 +79,12 @@
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                     <div class="form-check mr-3">
                                         <input type="checkbox"
-                                            name="is_home" class="form-check-input" id="exampleCheck1">
+                                            name="is_home" class="form-check-input" id="is_home">
                                         <label class="form-check-label" for="exampleCheck1">Головний екран</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox"
-                                            name="is_menu" class="form-check-input" id="exampleCheck1">
+                                            name="is_menu" class="form-check-input" id="is_menu">
                                         <label class="form-check-label" for="exampleCheck1">Меню</label>
                                     </div>
                                     </div>
@@ -118,4 +121,34 @@
 
 
 @section('script')
+<script>
+document.querySelector('.custom-file-input').addEventListener('change', function(e) {
+    let fileName = e.target.files[0].name;
+    let nextSibling = e.target.nextElementSibling;
+    nextSibling.innerText = fileName;
+});
+</script>
+<script>
+
+document.getElementById("imageInput").addEventListener("change", function(event){
+
+    let file = event.target.files[0];
+
+    if(file){
+        document.querySelector(".custom-file-label").innerText = file.name;
+
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+            let img = document.getElementById("previewImage");
+            img.src = e.target.result;
+            img.style.display = "block";
+        }
+
+        reader.readAsDataURL(file);
+    }
+
+});
+
+</script>
 @endsection

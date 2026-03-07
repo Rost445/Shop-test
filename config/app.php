@@ -189,6 +189,7 @@ return [
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Breadcrumbs' => Diglactic\Breadcrumbs\Breadcrumbs::class,
     ])->toArray(),
 
 ];
