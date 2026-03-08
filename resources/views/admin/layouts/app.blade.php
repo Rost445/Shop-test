@@ -53,6 +53,38 @@ $getSettingHeader = App\Models\SystemSettingModel::getSingle();
 
   })
 </script>
+<script>
+
+document.querySelectorAll('.custom-file-input').forEach(function(input){
+
+    input.addEventListener('change', function(e){
+
+        let file = e.target.files[0];
+
+        if(file){
+
+            e.target.nextElementSibling.innerText = file.name;
+
+            let reader = new FileReader();
+
+            reader.onload = function(ev){
+
+                let preview = e.target.closest('.form-group').querySelector('.previewImage');
+
+                preview.src = ev.target.result;
+                preview.style.display = "block";
+
+            }
+
+            reader.readAsDataURL(file);
+
+        }
+
+    });
+
+});
+
+</script>
 
 @yield('script')
 

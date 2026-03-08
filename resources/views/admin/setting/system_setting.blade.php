@@ -35,66 +35,16 @@
                                             class="form-control" placeholder="Назва сайту (інтернет магазину)">
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Лого</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="logo" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Виберіть
-                                                    файл</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Завантажити</span>
-                                            </div>
-                                        </div>
-                                        @if (!@empty($getRecord->getLogo()))
-                                            <img src="{{ $getRecord->getLogo() }}" class="img-thumbnail"
-                                                style="width: 200px; margin-top:10px" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Фавікон</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="favicon" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Виберіть
-                                                    файл</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Завантажити</span>
-                                            </div>
-                                        </div>
-                                        @if (!@empty($getRecord->getFavicon()))
-                                            <img src="{{ $getRecord->getFavicon() }}" class="img-thumbnail"
-                                                style="width: 50px; margin-top:10px" alt="">
-                                        @endif
-                                    </div>
+                                   <x-image-upload label="Лого" name="logo" :image="$getRecord->getLogo()" />
+
+                                   <x-image-upload label="Фавікон" name="favicon" :image="$getRecord->getFavicon()" />
                                     <div class="form-group">
                                         <label>Текст у футері</label>
                                         <textarea class="form-control" cols="30" rows="5" name="footer_description"
                                             placeholder="Короткий опис вашої діяльності">{{ $getRecord->footer_description }}</textarea>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Значки оплати</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="footer_payment_icon" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Виберіть
-                                                    файл</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Завантажити</span>
-                                            </div>
-                                        </div>
-                                        @if (!@empty($getRecord->getFooterPayment()))
-                                            <img src="{{ $getRecord->getFooterPayment() }}" class="img-thumbnail"
-                                                style="width: 200px; margin-top:10px" alt="">
-                                        @endif
-                                    </div>
+                                  <x-image-upload label="Значки оплати" name="footer_payment_icon" :image="$getRecord->getFooterPayment()" />
                                     <hr>
                                     <div class="form-group">
                                         <label for="exampleInputName">Адреса</label>
@@ -173,4 +123,20 @@
 
 
 @section('script')
+    <script>
+        document.querySelectorAll('.custom-file-input').forEach(function(input) {
+
+            input.addEventListener('change', function(e) {
+
+                if (e.target.files.length > 0) {
+                    let fileName = e.target.files[0].name;
+                    let label = e.target.nextElementSibling;
+                    label.innerText = fileName;
+                }
+
+            });
+
+        });
+    </script>
+   
 @endsection

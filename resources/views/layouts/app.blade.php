@@ -333,6 +333,7 @@ $getSettingHeader = App\Models\SystemSettingModel::getSingle();
             });
         });
     </script>
+    
     @yield('script')
 </body>
 

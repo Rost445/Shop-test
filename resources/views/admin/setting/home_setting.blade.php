@@ -71,26 +71,11 @@
                                             value="{{ $getRecord->payment_delivery_description }}" class="form-control"
                                             required>
                                     </div>
+                                    <x-image-upload label="Зображення Оплата та Доставка" name="payment_delivery_image"
+                                        :image="$getRecord->getPaymentImage()" />
 
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Зображення Оплата та Доставка<span
-                                                class="text-danger"> *</span></label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="payment_delivery_image"
-                                                    class="custom-file-input" id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Виберіть
-                                                    файл</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Завантажити</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if (!@empty($getRecord->getPaymentImage()))
-                                        <img src="{{ $getRecord->getPaymentImage() }}" class="img-thumbnail"
-                                            style="width: 200px; margin-top:10px" alt="">
-                                    @endif
+
+
                                     <hr>
                                     <div class="form-group">
                                         <label for="exampleInputName">Заголовок Повернення та відшкодування <span
@@ -104,33 +89,15 @@
                                         <input type="text" name="refind_description"
                                             value="{{ $getRecord->refind_description }}" class="form-control" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Зображення Повернення та відшкодування <span
-                                                class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="refind_image" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Виберіть
-                                                    файл</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Завантажити</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    @if (!@empty($getRecord->getRefindImage()))
-                                        <img src="{{ $getRecord->getRefindImage() }}" class="img-thumbnail"
-                                            style="width: 200px; margin-top:10px" alt="">
-                                    @endif
+                                    <x-image-upload label="Зображення Повернення та відшкодування" name="refind_image"
+                                        :image="$getRecord->getRefindImage()" />
 
                                     <hr>
                                     <div class="form-group">
                                         <label for="exampleInputName">Заголовок Підтримка якості <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" name="support_title"
-                                            value="{{ $getRecord->support_title }}" class="form-control" required>
+                                        <input type="text" name="support_title" value="{{ $getRecord->support_title }}"
+                                            class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Опис Підтримка якості <span
@@ -138,33 +105,16 @@
                                         <input type="text" name="support_description"
                                             value="{{ $getRecord->support_description }}" class="form-control" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Зображення Підтримка якості <span
-                                                class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="support_image"
-                                                    value="{{ $getRecord->support_image }}" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Виберіть
-                                                    файл</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Завантажити</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if (!@empty($getRecord->getSupportImage()))
-                                    <img src="{{ $getRecord->getSupportImage() }}" class="img-thumbnail"
-                                        style="width: 200px; margin-top:10px" alt="">
-                                @endif
-                                  
+                                    <x-image-upload label="Зображення Підтримка якості" name="support_image"
+                                        :image="$getRecord->getSupportImage()" />
+
+
                                     <hr>
                                     <div class="form-group">
                                         <label for="exampleInputName">Заголовок Зареєструйтесь <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" name="signup_title"
-                                            value="{{ $getRecord->signup_title }}" class="form-control" required>
+                                        <input type="text" name="signup_title" value="{{ $getRecord->signup_title }}"
+                                            class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Опис Зареєструйтесь <span
@@ -172,27 +122,10 @@
                                         <input type="text" name="signup_description"
                                             value="{{ $getRecord->signup_description }}" class="form-control" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Зображення Зареєструйтесь <span
-                                                class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="signup_image"
-                                                    value="{{ $getRecord->signup_image }}" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Виберіть
-                                                    файл</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Завантажити</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if (!@empty($getRecord->getSignupImage()))
-                                    <img src="{{ $getRecord->getSignupImage() }}" class="img-thumbnail"
-                                        style="width: 200px; margin-top:10px" alt="">
-                                @endif
-                                   
+                                    <x-image-upload label="Зображення Зареєструйтесь " name="signup_image"
+                                        :image="$getRecord->getSignupImage()" />
+
+
                                 </div><!--.end-card-body-->
 
                                 <div class="card-footer">
