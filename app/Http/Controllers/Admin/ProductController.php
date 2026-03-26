@@ -102,7 +102,7 @@ class ProductController extends Controller
             $product->brand_id = trim($request->brand_id);
             $product->is_trendy = !empty($request->is_trendy) ? 1 : 0;
             $product->price = trim($request->price);
-            $product->old_price = trim($request->old_price);
+            $product->old_price = trim($request->old_price) ? $request->old_price : 0;
             $product->short_description = trim($request->short_description);
             $product->description = trim($request->description);
             $product->additional_information = trim($request->additional_information);

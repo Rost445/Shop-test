@@ -9,7 +9,7 @@ $getSettingFooter = App\Models\SystemSettingModel::getSingle();
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-        <strong>Copyright &copy; {{ date('Y')}} {{  $getSettingFooter->website_name}}</strong> | All rights reserved.  
+        <strong>Copyright &copy; {{ date('Y') }} {{ $getSettingFooter?->website_name ?? 'Мій сайт' }}</strong> | All rights reserved.
       </div>
       <div class="col-md-6">
         <p class="text-right">Сьогодні: <strong><span id="current-time"></span></strong></p>

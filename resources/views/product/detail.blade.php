@@ -16,13 +16,13 @@
                     <li class="breadcrumb-item active" aria-current="page">{{ $getProduct->title }}</li>
                 </ol>
             </div><!-- End .container -->
-        </nav><!-- End .breadcrumb-nav -->     
+        </nav><!-- End .breadcrumb-nav -->
         <div class="page-content">
             <div class="container">
                 <div class="product-details-top mb-2">
                     <div class="row">
                         <div class="col-md-6">
-                            
+
                             <div class="product-gallery">
                                 <figure class="product-main-image">
                                     @php
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="col-md-6">
-                           <div class="mb-1"> @include('layouts._message')</div>
+                            <div class="mb-1"> @include('layouts._message')</div>
                             <div class="product-details">
                                 <h1 class="product-title">{{ $getProduct->title }}</h1>
 
@@ -63,9 +63,20 @@
                                         Відгуки ({{ $getProduct->getTotalReview() }})</a>
                                 </div><!-- End .rating-container -->
 
-                                <div class="product-price">
-                                    <span id="getTotalPrice">{{ number_format($getProduct->price, 2) }}</span> грн
-                                </div>
+                              @php
+    $firstSize = $getProduct->getSize->first();
+@endphp
+
+<div class="product-price">
+    <span id="getTotalPrice">
+        {{ number_format($getProduct->price + ($firstSize->price ?? 0), 2) }}
+    </span> грн
+    <span id="getSizeName">
+        @if($firstSize)
+            / {{ $firstSize->name }}
+        @endif
+    </span>
+</div>
                                 <div class="product-content">
                                     <p>{{ $getProduct->short_description }}</p>
                                 </div>
@@ -95,19 +106,20 @@
 
                                     @if (!empty($getProduct->getSize->count()))
                                         <div class="details-filter-row details-row-size">
-                                            <label for="size">Розмір:</label>
+                                            <label for="size">Вага:</label>
                                             <div class="select-custom">
-                                                <select name="size_id" id="size_id" class="form-control getSizePrice">
-                                                    <option data-price="0" value="">Вибрати розмір
-                                                    </option>
-                                                    @foreach ($getProduct->getSize as $size)
-                                                        <option data-price="{{ !empty($size->price) ? $size->price : 0 }}"
-                                                            value="{{ $size->id }}">{{ $size->name }} @if (!empty($size->price))
-                                                                (+{{ number_format($size->price, 2) }} грн)
-                                                            @endif
-                                                        </option>
-                                                    @endforeach
-                                                </select>
+                                              <select name="size_id" id="size_id" class="form-control getSizePrice">
+    @foreach ($getProduct->getSize as $size)
+        <option 
+            data-price="{{ $size->price ?? 0 }}"
+            value="{{ $size->id }}"
+            {{ $loop->first ? 'selected' : '' }}>
+            
+            {{ $size->name }}
+
+        </option>
+    @endforeach
+</select>
                                             </div>
                                         </div>
                                     @endif
@@ -130,7 +142,7 @@
                                                     class="add-to-wishlist
                                                      add_to_wishlist{{ $getProduct->id }}{{ !empty($getProduct->checkWishlist($getProduct->id))
                                                          ? '
-                                                                                                                                                                                                                                                                         btn-wishlist-add'
+                                                                                                                                                                                                                                                                                                                              btn-wishlist-add'
                                                          : '' }}
                                                      btn-product btn-wishlist"
                                                     title="Wishlist" id="{{ $getProduct->id }}"><span>Додати до списку
@@ -299,12 +311,12 @@
                                 <div class="product-action-vertical">
                                     @if (!empty(Auth::check()))
                                         <a href="javascript:;" data-toggle="modal"class=" add-to-wishlist
-                                                     add_to_wishlist{{ $value->id }} btn-product-icon btn-wishlist btn-expandable {{ !empty($value->checkWishlist($value->id)) ? 'btn-wishlist-add' : '' }}
-                                                     id="{{ $value->id }}"
-                                                        title="Wishlist"><span>Додати до списку бажань</span></a>
+                                                         add_to_wishlist{{ $value->id }} btn-product-icon btn-wishlist btn-expandable {{ !empty($value->checkWishlist($value->id)) ? 'btn-wishlist-add' : '' }}
+                                                         id="{{ $value->id }}"
+                                                            title="Wishlist"><span>Додати до списку бажань</span></a>
 @else
     <a href="#signin-modal" data-toggle="modal" class="btn-product-icon btn-wishlist btn-expandable" title="Wishlist"><span>Додати до
-                                                            списку бажань</span></a>
+                                                                списку бажань</span></a>
      @endif
                                 </div>
                             </figure>
@@ -339,6 +351,28 @@
             var price = $('option:selected', this).attr('data-price');
             var total = parseFloat(product_price) + parseFloat(price);
             $('#getTotalPrice').html(total.toFixed(2));
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('.getSizePrice').change(function() {
+
+                let basePrice = {{ $getProduct->price }};
+                let sizePrice = parseFloat($(this).find(':selected').data('price')) || 0;
+                let sizeName = $(this).find(':selected').text();
+
+                let totalPrice = basePrice + sizePrice;
+
+                $('#getTotalPrice').text(totalPrice.toFixed(2));
+                $('#getSizeName').text(' / ' + sizeName);
+                if ($(this).val() == '') {
+                    $('#getSizeName').text('');
+                }
+
+            });
+
         });
     </script>
 @endsection

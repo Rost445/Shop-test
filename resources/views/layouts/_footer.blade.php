@@ -4,27 +4,35 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget widget-about">
-                        <img src="{{ $getSystemSettingApp->getLogo() }}" class="footer-logo" alt="Footer Logo"
-                            width="105" height="25">
-                        <p>{{ $getSystemSettingApp->footer_description }} </p>
+                       <img src="{{ $getSystemSettingApp?->getLogo() ?? url('public/default-logo.png') }}" 
+     class="footer-logo" alt="Footer Logo" width="105" height="25">
+                       <p>{{ $getSystemSettingApp?->footer_description ?? '' }}</p>
 
-                        <div class="social-icons">
-                            @if (!empty($getSystemSettingApp->facebook_link))
-                                <a href="{{ $getSystemSettingApp->facebook_link }}" class="social-icon" title="Facebook"
-                                    target="_blank"><i class="icon-facebook-f"></i></a>
-                            @endif
-                            @if (!empty($getSystemSettingApp->instagram_link))
-                                <a href="{{ $getSystemSettingApp->instagram_link }}" class="social-icon"
-                                    title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
-                            @endif
-                            @if (!empty($getSystemSettingApp->youtube_link))
-                                <a href="{{ $getSystemSettingApp->youtube_link }}" class="social-icon" title="Youtube"
-                                    target="_blank"><i class="icon-youtube"></i></a>
-                            @endif
-                            @if (!empty($getSystemSettingApp->tiktok_link))
-                                <a href="{{ $getSystemSettingApp->tiktok_link }}" class="social-icon" title="Tiktok" target="_blank"><i class="fab fa-tiktok"></i></a>
-                            @endif
-                        </div>
+<div class="social-icons">
+    @if (!empty($getSystemSettingApp?->facebook_link))
+        <a href="{{ $getSystemSettingApp->facebook_link }}" class="social-icon" title="Facebook" target="_blank">
+            <i class="icon-facebook-f"></i>
+        </a>
+    @endif
+
+    @if (!empty($getSystemSettingApp?->instagram_link))
+        <a href="{{ $getSystemSettingApp->instagram_link }}" class="social-icon" title="Instagram" target="_blank">
+            <i class="icon-instagram"></i>
+        </a>
+    @endif
+
+    @if (!empty($getSystemSettingApp?->youtube_link))
+        <a href="{{ $getSystemSettingApp->youtube_link }}" class="social-icon" title="Youtube" target="_blank">
+            <i class="icon-youtube"></i>
+        </a>
+    @endif
+
+    @if (!empty($getSystemSettingApp?->tiktok_link))
+        <a href="{{ $getSystemSettingApp->tiktok_link }}" class="social-icon" title="Tiktok" target="_blank">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    @endif
+</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
@@ -101,11 +109,14 @@
 
     <div class="footer-bottom">
         <div class="container">
-            <p class="footer-copyright">Авторське право © {{ date('Y')}} {{ $getSystemSettingApp->website_name }}. Всі права захищено.</p>
+          <p class="footer-copyright">
+    Авторське право © {{ date('Y') }} {{ $getSystemSettingApp?->website_name ?? 'Мій сайт' }}. Всі права захищено.
+</p>
 
-            <figure class="footer-payments">
-                <img src="{{ $getSystemSettingApp->getFooterPayment() }}" alt="Payment methods" width="272" height="20">
-            </figure>
+<figure class="footer-payments">
+    <img src="{{ $getSystemSettingApp?->getFooterPayment() ?? url('public/default-payments.png') }}" 
+         alt="Payment methods" width="272" height="20">
+</figure>
         </div>
     </div>
 </footer>

@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Назва доставки : <span style="font-weight: normal;">
-                                            {{ $getRecord->getShipping->name }} </span></label>
+                                            {{ $getRecord->getShipping?->name }} </span></label>
                                 </div>
                                 <div class="form-group">
                                     <label>Сума Доставки (грн) : <span style="font-weight: normal;">
@@ -146,8 +146,8 @@
                                                             <td style="vertical-align: middle ">
                                                                 <div class="mx-5"
                                                                     style=" width: 100px; height: 100px; overflow: hidden;">
-                                                                    <img src="{{ $getProductImage->getLogo() }}"
-                                                                        style=" min-height: 100px; min-width: 100px; vertical-align: middle;">
+                                                               <img src="{{ $getProductImage?->getLogo() ?? asset('images/no-image.png') }}"
+     style="min-height: 100px; min-width: 100px; vertical-align: middle;">
                                                                 </div>
                                                             </td>
                                                             <td style="vertical-align: middle">
@@ -155,7 +155,7 @@
                                                                     target="_blank">{{ $item->getProduct->title }}</a>
                                                                 <br>
                                                                 @if (!empty($item->size_name))
-                                                                <span class="font-weight-bold">Розмір : </span>{{ $item->size_name }} <br>
+                                                                <span class="font-weight-bold">Вага: </span>{{ $item->size_name }} <br>
                                                                 @endif
 
                                                                 @if (!empty($item->color_name))

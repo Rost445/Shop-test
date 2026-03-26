@@ -41,8 +41,8 @@ class ProductModelExport implements FromCollection, WithHeadings
             DB::raw('GROUP_CONCAT(product_color.color_id) AS color_ids'),
             DB::raw('GROUP_CONCAT(product_color.id) AS product_color_ids'),
             // Данные из `product_size`
-            DB::raw('GROUP_CONCAT(product_size.name) AS size_names'),
-            DB::raw('GROUP_CONCAT(product_size.price) AS size_prices'),
+        DB::raw("GROUP_CONCAT(product_size.name ORDER BY product_size.id SEPARATOR '|') AS size_names"),
+DB::raw("GROUP_CONCAT(product_size.price ORDER BY product_size.id SEPARATOR '|') AS size_prices"),
             // Данные из `product_image`
             DB::raw('GROUP_CONCAT(product_image.image_name) AS image_names'),
             DB::raw('GROUP_CONCAT(product_image.image_extension) AS image_extensions'),

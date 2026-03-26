@@ -153,9 +153,9 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Стара ціна (грн) <span class="text-danger">*</span></label>
+                                                <label>Стара ціна (грн) </label>
                                                 <input type="text" name="old_price" class="form-control"
-                                                    placeholder="Введіть стару вартість продукції" required
+                                                    placeholder="Введіть стару вартість продукції" 
                                                     value="{{ !empty($product->old_price) ? $product->old_price : '' }}">
                                             </div>
                                         </div>

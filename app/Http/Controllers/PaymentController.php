@@ -286,10 +286,12 @@ class PaymentController extends Controller
                 $getOrder->save();
 try {
     Mail::to($getOrder->email)
-       ->bcc('e-mail@fts.ua')
-    ->send(new OrderInvoiceMail($getOrder));
+        ->bcc('e-mail@fts.ua')
+        ->send(new OrderInvoiceMail($getOrder));
 } catch (\Exception $e) {
-    dd($e->getMessage());
+    \Log::error('Помилка відправки листа: ' . $e->getMessage());
+    // Додатково можна повідомити користувача
+    session()->flash('error', 'Не вдалося надіслати лист підтвердження замовлення.');
 }
               // 🔔 Сповіщення адміну
 $admins = User::where('is_admin', 1)->get();

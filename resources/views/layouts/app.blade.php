@@ -9,7 +9,7 @@ $getSettingHeader = App\Models\SystemSettingModel::getSingle();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ !empty($meta_title) ? $meta_title : '' }} - {{  $getSettingHeader->website_name}}</title>
+   <title>{{ !empty($header_title) ? $header_title : '' }} - {{ $getSettingHeader?->website_name ?? 'Назва сайту' }}</title>
     @if (!empty($meta_keywords))
         <meta name="keywords" content="{{ $meta_keywords }}">
     @endif
@@ -20,8 +20,7 @@ $getSettingHeader = App\Models\SystemSettingModel::getSingle();
             $getSystemSettingApp = App\Models\SystemSettingModel::getSingle();
     @endphp
 
-    <link rel="shortcut icon" href="{{ $getSystemSettingApp->getFavicon()}}">
-
+    <link rel="shortcut icon" href="{{ $getSettingHeader?->getFavicon() ?? url('public/default-favicon.ico') }}">
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/plugins/owl-carousel/owl.carousel.css') }}">

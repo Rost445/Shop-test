@@ -61,19 +61,25 @@ class ProductModelImport implements ToCollection, WithHeadingRow
 
                 // Обработка размеров
                 if (!empty($row['size_names']) && !empty($row['size_prices'])) {
-                    $sizeNames = explode(',', $row['size_names']);
-                    $sizePrices = explode(',', $row['size_prices']);
+                   $sizeNames = explode(',', $row['size_names']);
+$sizePrices = explode(',', $row['size_prices']);
                     foreach ($sizeNames as $index => $name) {
-                        ProductSizeModel::updateOrCreate(
-                            [
-                                'product_id' => $product->id,
-                                'name' => $name,
-                            ],
-                            [
-                                'price' => $sizePrices[$index] ?? 0,
-                            ]
-                        );
-                    }
+
+    $rawPrice = $sizePrices[$index] ?? 0;
+
+    // ВИТЯГУЄМО ТІЛЬКИ ЧИСЛО
+    $price = floatval(preg_replace('/[^0-9.]/', '', $rawPrice));
+
+    ProductSizeModel::updateOrCreate(
+        [
+            'product_id' => $product->id,
+            'name' => trim($name),
+        ],
+        [
+            'price' => $price,
+        ]
+    );
+}
                 }
 
                 // Обработка изображений
