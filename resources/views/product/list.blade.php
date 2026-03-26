@@ -62,6 +62,8 @@
                                     <div class="select-custom">
                                         <select name="sortby" id="sortby" class="form-control ChangeSortBy">
                                             <option value="">Вибрати</option>
+                                            <option value="id_asc">За ID (спочатку старі)</option>
+<option value="id_desc">За ID (спочатку нові)</option>
                                             <option value="popularity">За популяністю</option>
                                             <option value="rating">За рейтингом</option>
                                             <option value="date">За датою</option>
@@ -103,7 +105,7 @@
                                     class="form-control"></div>
                             <div class="input-group"><input type="hidden" name="color_id" id="get_color_id"
                                     class="form-control"></div>
-                            <div class="input-group"><input type="hidden" name="sort_by_id" id="get_sort_by_id"
+                            <div class="input-group"><<input type="hidden" name="sortby" id="get_sort_by_id"
                                     class="form-control"></div>
                             <div class="input-group"><input type="hidden" name="start_price" id="get_start_price"
                                     class="form-control"></div>
